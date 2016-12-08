@@ -8,6 +8,7 @@ package ebrain;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Scanner;
+import javax.swing.JScrollPane;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.layout.HierarchicalLayout;
@@ -26,6 +27,7 @@ public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
+        ListPalabras.setEditable(false);
         setLocationRelativeTo(null);
     }
 
@@ -58,6 +60,14 @@ public class Main extends javax.swing.JFrame {
         DateCh = new com.toedter.calendar.JDateChooser();
         JGenea = new javax.swing.JDialog();
         JPalabras = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        TFPalabra = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TFPalabras = new javax.swing.JTextArea();
+        AgregarPalabra = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ListPalabras = new javax.swing.JTextArea();
         JMapa = new javax.swing.JDialog();
         BTDatos = new javax.swing.JButton();
 
@@ -76,6 +86,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         PalabraBT.setText("Palabras");
+        PalabraBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PalabraBTActionPerformed(evt);
+            }
+        });
 
         MapaBT.setText("Mapas Conceptuales");
 
@@ -198,15 +213,69 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jLabel6.setText("Palabra");
+
+        jLabel7.setText("Palabras");
+
+        TFPalabras.setColumns(20);
+        TFPalabras.setRows(5);
+        jScrollPane3.setViewportView(TFPalabras);
+
+        AgregarPalabra.setText("Agregar");
+        AgregarPalabra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarPalabraActionPerformed(evt);
+            }
+        });
+
+        ListPalabras.setColumns(20);
+        ListPalabras.setRows(5);
+        jScrollPane2.setViewportView(ListPalabras);
+
         javax.swing.GroupLayout JPalabrasLayout = new javax.swing.GroupLayout(JPalabras.getContentPane());
         JPalabras.getContentPane().setLayout(JPalabrasLayout);
         JPalabrasLayout.setHorizontalGroup(
             JPalabrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(JPalabrasLayout.createSequentialGroup()
+                .addGroup(JPalabrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPalabrasLayout.createSequentialGroup()
+                        .addGroup(JPalabrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPalabrasLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(JPalabrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addGap(34, 34, 34)
+                                .addComponent(TFPalabra)
+                                .addGap(8, 8, 8))
+                            .addGroup(JPalabrasLayout.createSequentialGroup()
+                                .addContainerGap(18, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30))
+                    .addGroup(JPalabrasLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(AgregarPalabra)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         JPalabrasLayout.setVerticalGroup(
             JPalabrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(JPalabrasLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(JPalabrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPalabrasLayout.createSequentialGroup()
+                        .addGroup(JPalabrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TFPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AgregarPalabra))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout JMapaLayout = new javax.swing.GroupLayout(JMapa.getContentPane());
@@ -221,7 +290,6 @@ public class Main extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 400));
 
         BTDatos.setText("Datos");
         BTDatos.setMaximumSize(new java.awt.Dimension(74, 23));
@@ -287,6 +355,25 @@ public class Main extends javax.swing.JFrame {
         JPerfiles.setVisible(true);
     }//GEN-LAST:event_PerfBTActionPerformed
 
+    private void AgregarPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarPalabraActionPerformed
+        // TODO add your handling code here:
+        if (TFPalabra.getText().equals("")) {
+            ListPalabras.append(TFPalabras.getText() + "\n");
+            TFPalabras.setText("");
+        } else {
+            ListPalabras.append(TFPalabra.getText()+ "\n");
+            TFPalabra.setText("");
+        }
+    }//GEN-LAST:event_AgregarPalabraActionPerformed
+
+    private void PalabraBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PalabraBTActionPerformed
+        // TODO add your handling code here:
+        JPalabras.setModal(true);
+        JPalabras.pack();
+        JPalabras.setLocationRelativeTo(this);
+        JPalabras.setVisible(true);
+    }//GEN-LAST:event_PalabraBTActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,6 +412,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgrePErBT;
+    private javax.swing.JButton AgregarPalabra;
     private javax.swing.JButton BTDatos;
     private com.toedter.calendar.JDateChooser DateCh;
     private javax.swing.JComboBox<String> GenCB;
@@ -333,6 +421,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog JMapa;
     private javax.swing.JDialog JPalabras;
     private javax.swing.JDialog JPerfiles;
+    private javax.swing.JTextArea ListPalabras;
     private javax.swing.JDialog MEnuDAtos;
     private javax.swing.JButton MapaBT;
     private javax.swing.JTextField NomTF;
@@ -340,11 +429,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton PalabraBT;
     private javax.swing.JButton PerfBT;
     private javax.swing.JComboBox<String> RazaCB;
+    private javax.swing.JTextField TFPalabra;
+    private javax.swing.JTextArea TFPalabras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }
