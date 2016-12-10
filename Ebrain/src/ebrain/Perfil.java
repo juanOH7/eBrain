@@ -3,7 +3,6 @@ package ebrain;
 import java.util.Date;
 import java.util.LinkedList;
 import org.graphstream.graph.Graph;
-import org.graphstream.graph.implementations.AdjacencyListGraph;
 
 public class Perfil {
 
