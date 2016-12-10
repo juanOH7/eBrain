@@ -1,17 +1,23 @@
 package ebrain;
 
+import java.awt.HeadlessException;
 import java.util.Date;
 import java.util.LinkedList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import org.graphstream.graph.EdgeRejectedException;
+import org.graphstream.graph.ElementNotFoundException;
 import org.graphstream.graph.Graph;
+import org.graphstream.graph.IdAlreadyInUseException;
 import org.graphstream.graph.implementations.AdjacencyListGraph;
+import org.graphstream.ui.view.Viewer;
 
 public class Main extends javax.swing.JFrame {
 
     LinkedList<Perfil> perfiles = new LinkedList<>();
     LinkedList<String> palabras = new LinkedList<>();
-    LinkedList<Graph> mapas = new LinkedList<>();
+    LinkedList<AdjacencyListGraph> mapas = new LinkedList<>();
 
     public Main() {
         initComponents();
@@ -25,10 +31,12 @@ public class Main extends javax.swing.JFrame {
 
         MEnuDAtos = new javax.swing.JDialog();
         PerfPalaBT = new javax.swing.JButton();
-        GeneaBT = new javax.swing.JButton();
+        EditarBT = new javax.swing.JButton();
         MapaGeneaBT = new javax.swing.JButton();
-        JGenea = new javax.swing.JDialog();
-        JMapa = new javax.swing.JDialog();
+        JGeneaMaps = new javax.swing.JDialog();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -38,6 +46,7 @@ public class Main extends javax.swing.JFrame {
         BTConectar = new javax.swing.JButton();
         jSlider1 = new javax.swing.JSlider();
         CBMapas = new javax.swing.JComboBox<>();
+        JMapa = new javax.swing.JDialog();
         JPerfPal = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -87,10 +96,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        GeneaBT.setText("Editar");
-        GeneaBT.addActionListener(new java.awt.event.ActionListener() {
+        EditarBT.setText("Editar");
+        EditarBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GeneaBTActionPerformed(evt);
+                EditarBTActionPerformed(evt);
             }
         });
 
@@ -109,7 +118,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(115, Short.MAX_VALUE)
                 .addGroup(MEnuDAtosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(PerfPalaBT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GeneaBT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EditarBT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(MapaGeneaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(110, 110, 110))
         );
@@ -121,20 +130,22 @@ public class Main extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(MapaGeneaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(GeneaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EditarBT, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout JGeneaLayout = new javax.swing.GroupLayout(JGenea.getContentPane());
-        JGenea.getContentPane().setLayout(JGeneaLayout);
-        JGeneaLayout.setHorizontalGroup(
-            JGeneaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 443, Short.MAX_VALUE)
         );
-        JGeneaLayout.setVerticalGroup(
-            JGeneaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
+
+        jTabbedPane2.addTab("Genealogía", jPanel4);
 
         jLabel8.setText("Palabra");
 
@@ -159,53 +170,83 @@ public class Main extends javax.swing.JFrame {
         jSlider1.setToolTipText("");
         jSlider1.setValue(3);
 
-        javax.swing.GroupLayout JMapaLayout = new javax.swing.GroupLayout(JMapa.getContentPane());
-        JMapa.getContentPane().setLayout(JMapaLayout);
-        JMapaLayout.setHorizontalGroup(
-            JMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JMapaLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(101, 101, 101))
-            .addGroup(JMapaLayout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addGroup(JMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(BTConectar)
                     .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(CBMapas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76))
         );
-        JMapaLayout.setVerticalGroup(
-            JMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JMapaLayout.createSequentialGroup()
-                .addGroup(JMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JMapaLayout.createSequentialGroup()
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(CBMapas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(jLabel8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JMapaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel9)))
-                .addGroup(JMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JMapaLayout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JMapaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(72, 72, 72)))
                 .addComponent(BTConectar)
                 .addGap(23, 23, 23))
+        );
+
+        jTabbedPane2.addTab("Mapas", jPanel5);
+
+        javax.swing.GroupLayout JGeneaMapsLayout = new javax.swing.GroupLayout(JGeneaMaps.getContentPane());
+        JGeneaMaps.getContentPane().setLayout(JGeneaMapsLayout);
+        JGeneaMapsLayout.setHorizontalGroup(
+            JGeneaMapsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JGeneaMapsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane2)
+                .addContainerGap())
+        );
+        JGeneaMapsLayout.setVerticalGroup(
+            JGeneaMapsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JGeneaMapsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane2)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout JMapaLayout = new javax.swing.GroupLayout(JMapa.getContentPane());
+        JMapa.getContentPane().setLayout(JMapaLayout);
+        JMapaLayout.setHorizontalGroup(
+            JMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 486, Short.MAX_VALUE)
+        );
+        JMapaLayout.setVerticalGroup(
+            JMapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 253, Short.MAX_VALUE)
         );
 
         jLabel1.setText("Nombre");
@@ -514,9 +555,9 @@ public class Main extends javax.swing.JFrame {
         MEnuDAtos.setVisible(true);
     }//GEN-LAST:event_BTDatosActionPerformed
 
-    private void GeneaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneaBTActionPerformed
+    private void EditarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarBTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GeneaBTActionPerformed
+    }//GEN-LAST:event_EditarBTActionPerformed
 
     private void AgrePErBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgrePErBTActionPerformed
         // TODO add your handling code here:
@@ -592,12 +633,19 @@ public class Main extends javax.swing.JFrame {
                 modelo1.addElement(palabras.get(i));
             }
         }
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        if (!mapas.isEmpty()) {
+            for (int i = 0; i < mapas.size(); i++) {
+                model.addElement(mapas.get(i));
+            }
+        }
         ListPal1.setModel(modelo1);
         ListPal2.setModel(modelo1);
-        JMapa.setModal(true);
-        JMapa.pack();
-        JMapa.setLocationRelativeTo(this);
-        JMapa.setVisible(true);
+        CBMapas.setModel(model);
+        JGeneaMaps.setModal(true);
+        JGeneaMaps.pack();
+        JGeneaMaps.setLocationRelativeTo(this);
+        JGeneaMaps.setVisible(true);
     }//GEN-LAST:event_MapaGeneaBTActionPerformed
 
     private void BTConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTConectarActionPerformed
@@ -605,16 +653,28 @@ public class Main extends javax.swing.JFrame {
         try {
             String select1 = ListPal1.getSelectedValue();
             String select2 = ListPal2.getSelectedValue();
-            if (!select1.equals(select2) && !(ListPal1.isSelectionEmpty() || ListPal2.isSelectionEmpty())) {
+            if (!select1.equals(select2) && !(ListPal1.isSelectionEmpty() || ListPal2.isSelectionEmpty()) && CBMapas.getItemCount() != 0) {
+                int pos = CBMapas.getSelectedIndex();
+                String id = select1 + select2 + "-" + select2 + select1;
+                int length = jSlider1.getValue();
+                AdjacencyListGraph tmp = mapas.get(pos);
+                tmp.addNode(select1);
+                tmp.addNode(select2);
+                if (tmp.addEdge(id, select1, select2, false) != null) {
+                    tmp.getEdge(id).addAttribute("length", length);
+                }
+                Viewer view = tmp.display();
+                view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
 
             } else {
                 JOptionPane.showMessageDialog(null, "No pueden ser iguales!!!");
             }
+
             ListPal1.clearSelection();
             ListPal2.clearSelection();
             jSlider1.setValue(3);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error!!!");
+        } catch (IdAlreadyInUseException | ElementNotFoundException | EdgeRejectedException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_BTConectarActionPerformed
 
@@ -632,13 +692,13 @@ public class Main extends javax.swing.JFrame {
             }*/
         } else if (TFMapas.getText().equals("") && TFArbol.getText().equals("") && TAatboles.getText().equals("")) {
             for (String tmp : TAmapas.getText().split("\\n")) {
-                Graph tmps = new AdjacencyListGraph(tmp, true, true);
+                AdjacencyListGraph tmps = new AdjacencyListGraph(tmp, false, true);
                 if (!mapas.contains(tmps)) {
                     mapas.add(tmps);
                 }
             }
         } else if (TAmapas.getText().equals("") && TFArbol.getText().equals("") && TAatboles.getText().equals("")) {
-            Graph tmps = new AdjacencyListGraph(TFMapas.getText(), true, true);
+            AdjacencyListGraph tmps = new AdjacencyListGraph(TFMapas.getText(), false, true);
             if (!mapas.contains(tmps)) {
                 mapas.add(tmps);
             }
@@ -655,12 +715,12 @@ public class Main extends javax.swing.JFrame {
             }*/
         } else if (TFArbol.getText().equals("") && TAatboles.getText().equals("")) {
             for (String tmp : TAmapas.getText().split("\\n")) {
-                Graph tmps = new AdjacencyListGraph(tmp, true, true);
+                AdjacencyListGraph tmps = new AdjacencyListGraph(tmp, false, true);
                 if (!mapas.contains(tmps)) {
                     mapas.add(tmps);
                 }
             }
-            Graph tmps = new AdjacencyListGraph(TFMapas.getText(), true, true);
+            AdjacencyListGraph tmps = new AdjacencyListGraph(TFMapas.getText(), false, true);
             if (!mapas.contains(tmps)) {
                 mapas.add(tmps);
             }
@@ -676,12 +736,12 @@ public class Main extends javax.swing.JFrame {
                 }
             }*/
             for (String tmp : TAmapas.getText().split("\\n")) {
-                Graph tmps = new AdjacencyListGraph(tmp, true, true);
+                AdjacencyListGraph tmps = new AdjacencyListGraph(tmp, false, true);
                 if (!mapas.contains(tmps)) {
                     mapas.add(tmps);
                 }
             }
-            Graph tmps = new AdjacencyListGraph(TFMapas.getText(), true, true);
+            AdjacencyListGraph tmps = new AdjacencyListGraph(TFMapas.getText(), false, true);
             if (!mapas.contains(tmps)) {
                 mapas.add(tmps);
             }
@@ -736,9 +796,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BTDatos;
     private javax.swing.JComboBox<String> CBMapas;
     private com.toedter.calendar.JDateChooser DateCh;
+    private javax.swing.JButton EditarBT;
     private javax.swing.JComboBox<String> GenCB;
-    private javax.swing.JButton GeneaBT;
-    private javax.swing.JDialog JGenea;
+    private javax.swing.JDialog JGeneaMaps;
     private javax.swing.JDialog JMapa;
     private javax.swing.JDialog JPerfPal;
     private javax.swing.JList<String> ListPal1;
@@ -774,6 +834,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -785,5 +847,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
 }
