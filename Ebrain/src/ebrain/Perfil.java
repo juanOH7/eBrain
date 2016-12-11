@@ -14,6 +14,11 @@ public class Perfil {
     private LinkedList<Perfil> hijos;
     private LinkedList<Graph> mapa;
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
     public Perfil(String nombre, String raza, String genero, Date fechaN, String observaciones) {
         this.nombre = nombre;
         this.raza = raza;

@@ -67,7 +67,7 @@ public class Main extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         TFPalabra1 = new javax.swing.JTextField();
-        AgregarPalabra1 = new javax.swing.JButton();
+        EditPalabra1 = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
         JLisEditPal = new javax.swing.JList<>();
         ELimPalabraBT = new javax.swing.JButton();
@@ -303,14 +303,25 @@ public class Main extends javax.swing.JFrame {
         OBSTA1.setRows(5);
         jScrollPane8.setViewportView(OBSTA1);
 
-        AgrePErBT1.setText("Agregar");
+        AgrePErBT1.setText("Editar");
         AgrePErBT1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgrePErBT1ActionPerformed(evt);
             }
         });
 
+        CBEditPEr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBEditPErActionPerformed(evt);
+            }
+        });
+
         EliminarBT.setText("Eliminar");
+        EliminarBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarBTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -370,9 +381,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(DateCh1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(82, 82, 82))
+                    .addComponent(jLabel20)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(AgrePErBT1)
@@ -381,18 +390,23 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Perfiles", jPanel6);
 
-        jLabel21.setText("Palabra");
+        jLabel21.setText("Concepto");
 
-        AgregarPalabra1.setText("Agregar");
-        AgregarPalabra1.addActionListener(new java.awt.event.ActionListener() {
+        EditPalabra1.setText("Editar");
+        EditPalabra1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarPalabra1ActionPerformed(evt);
+                EditPalabra1ActionPerformed(evt);
             }
         });
 
         jScrollPane13.setViewportView(JLisEditPal);
 
         ELimPalabraBT.setText("Eliminar");
+        ELimPalabraBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ELimPalabraBTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -407,8 +421,8 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(TFPalabra1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(189, 189, 189)
-                        .addComponent(AgregarPalabra1)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                        .addComponent(EditPalabra1)))
+                .addContainerGap(133, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -432,11 +446,11 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(TFPalabra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21))
                 .addGap(52, 52, 52)
-                .addComponent(AgregarPalabra1)
+                .addComponent(EditPalabra1)
                 .addGap(85, 85, 85))
         );
 
-        jTabbedPane3.addTab("Palabras", jPanel7);
+        jTabbedPane3.addTab("Conceptos", jPanel7);
 
         jLabel24.setText("Mapas");
 
@@ -711,9 +725,9 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Perfiles", jPanel1);
 
-        jLabel6.setText("Palabra");
+        jLabel6.setText("Concepto");
 
-        jLabel7.setText("Palabras");
+        jLabel7.setText("Conceptos");
 
         TAPalabras.setColumns(20);
         TAPalabras.setRows(5);
@@ -776,7 +790,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Palabras", jPanel2);
+        jTabbedPane1.addTab("Conceptos", jPanel2);
 
         jLabel11.setText("Nombre");
 
@@ -932,12 +946,51 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         MEnuDAtos.setModal(true);
         MEnuDAtos.pack();
-        MEnuDAtos.setLocationRelativeTo(this);
+        MEnuDAtos.setLocationRelativeTo(null);
         MEnuDAtos.setVisible(true);
     }//GEN-LAST:event_BTDatosActionPerformed
 
     private void EditarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarBTActionPerformed
         // TODO add your handling code here:
+        NomTF1.setText("");
+        RazaCB1.setSelectedIndex(0);
+        GenCB1.setSelectedIndex(0);
+        OBSTA1.setText("");
+        DateCh1.setDate(new Date(System.currentTimeMillis()));
+        DefaultComboBoxModel modMap = new DefaultComboBoxModel();
+        DefaultListModel modelMap = new DefaultListModel();
+        if (!mapas.isEmpty()) {
+
+            for (int i = 0; i < mapas.size(); i++) {
+                modMap.addElement(mapas.get(i));
+                modelMap.addElement(mapas.get(i));
+            }
+
+        }
+        JlistMapasEdit.setModel(modelMap);
+        CBMapas1.setModel(modMap);
+        DefaultComboBoxModel modPerf = new DefaultComboBoxModel();
+        if (!perfiles.isEmpty()) {
+
+            for (int i = 0; i < perfiles.size(); i++) {
+                modPerf.addElement(perfiles.get(i));
+            }
+
+        }
+        CBEditPEr.setModel(modPerf);
+        DefaultListModel modPal = new DefaultListModel();
+        if (!palabras.isEmpty()) {
+
+            for (int i = 0; i < palabras.size(); i++) {
+                modPal.addElement(palabras.get(i));
+            }
+
+        }
+        JLisEditPal.setModel(modPal);
+        JEdit.setModal(true);
+        JEdit.pack();
+        JEdit.setLocationRelativeTo(null);
+        JEdit.setVisible(true);
     }//GEN-LAST:event_EditarBTActionPerformed
 
     private void AgrePErBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgrePErBTActionPerformed
@@ -1054,7 +1107,7 @@ public class Main extends javax.swing.JFrame {
             ListPal1.clearSelection();
             ListPal2.clearSelection();
             jSlider1.setValue(3);
-        } catch (IdAlreadyInUseException | ElementNotFoundException | EdgeRejectedException | HeadlessException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_BTConectarActionPerformed
@@ -1135,11 +1188,40 @@ public class Main extends javax.swing.JFrame {
 
     private void AgrePErBT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgrePErBT1ActionPerformed
         // TODO add your handling code here:
+        String nombre = NomTF1.getText(), raza = RazaCB1.getSelectedItem().toString();
+        String genero = GenCB1.getSelectedItem().toString(), observaciones = OBSTA1.getText();
+        Date nacimiento = DateCh1.getDate();
+        int pos = CBEditPEr.getSelectedIndex();
+        if (pos > -1) {
+            Perfil actual = perfiles.get(pos);
+            actual.setNombre(nombre);
+            actual.setFechaN(nacimiento);
+            actual.setGenero(genero);
+            actual.setObservaciones(observaciones);
+            actual.setRaza(raza);
+        }
+        NomTF1.setText("");
+        RazaCB1.setSelectedIndex(0);
+        GenCB1.setSelectedIndex(0);
+        OBSTA1.setText("");
+        DateCh1.setDate(new Date(System.currentTimeMillis()));
     }//GEN-LAST:event_AgrePErBT1ActionPerformed
 
-    private void AgregarPalabra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarPalabra1ActionPerformed
+    private void EditPalabra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPalabra1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarPalabra1ActionPerformed
+        if (JLisEditPal.getSelectedIndex() > -1) {
+            palabras.set(JLisEditPal.getSelectedIndex(), TFPalabra1.getText());
+
+        }
+        DefaultListModel modPal = new DefaultListModel();
+        if (!palabras.isEmpty()) {
+            for (int i = 0; i < palabras.size(); i++) {
+                modPal.addElement(palabras.get(i));
+            }
+        }
+        JLisEditPal.setModel(modPal);
+        TFPalabra1.setText("");
+    }//GEN-LAST:event_EditPalabra1ActionPerformed
 
     private void BTAddArbMap1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTAddArbMap1ActionPerformed
         // TODO add your handling code here:
@@ -1148,6 +1230,51 @@ public class Main extends javax.swing.JFrame {
     private void BTConectar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTConectar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BTConectar1ActionPerformed
+
+    private void CBEditPErActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBEditPErActionPerformed
+        // TODO add your handling code here:
+        int pos = CBEditPEr.getSelectedIndex();
+        Perfil actual = perfiles.get(pos);
+        NomTF1.setText(actual.getNombre());
+        RazaCB1.setSelectedItem(actual.getRaza());
+        GenCB1.setSelectedItem(actual.getGenero());
+        DateCh1.setDate(new Date(actual.getFechaN().getTime()));
+        OBSTA1.setText(actual.getObservaciones());
+    }//GEN-LAST:event_CBEditPErActionPerformed
+
+    private void EliminarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBTActionPerformed
+        // TODO add your handling code here:
+        try {
+            System.out.println(perfiles.remove((Perfil) CBEditPEr.getSelectedItem()));
+            DefaultComboBoxModel modPerf = new DefaultComboBoxModel();
+            if (!perfiles.isEmpty()) {
+
+                for (int i = 0; i < perfiles.size(); i++) {
+                    modPerf.addElement(perfiles.get(i));
+                }
+
+            }
+            CBEditPEr.setModel(modPerf);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }//GEN-LAST:event_EliminarBTActionPerformed
+
+    private void ELimPalabraBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELimPalabraBTActionPerformed
+        // TODO add your handling code here:
+        if (JLisEditPal.getSelectedIndex() > -1) {
+            palabras.remove(JLisEditPal.getSelectedIndex());
+        }
+        DefaultListModel modPal = new DefaultListModel();
+        if (!palabras.isEmpty()) {
+            for (int i = 0; i < palabras.size(); i++) {
+                modPal.addElement(palabras.get(i));
+            }
+        }
+        JLisEditPal.setModel(modPal);
+        TFPalabra1.setText("");
+    }//GEN-LAST:event_ELimPalabraBTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1189,7 +1316,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton AgrePErBT;
     private javax.swing.JButton AgrePErBT1;
     private javax.swing.JButton AgregarPalabra;
-    private javax.swing.JButton AgregarPalabra1;
     private javax.swing.JButton BTAddArbMap;
     private javax.swing.JButton BTAddArbMap1;
     private javax.swing.JButton BTConectar;
@@ -1202,6 +1328,7 @@ public class Main extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateCh1;
     private javax.swing.JButton ELimPalabraBT;
     private javax.swing.JButton ELiminarArbBT;
+    private javax.swing.JButton EditPalabra1;
     private javax.swing.JButton EditarBT;
     private javax.swing.JButton EliminarBT;
     private javax.swing.JButton EliminarConexBT;
