@@ -6,10 +6,12 @@ import java.util.LinkedList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.EdgeRejectedException;
 import org.graphstream.graph.ElementNotFoundException;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.IdAlreadyInUseException;
+import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.AdjacencyListGraph;
 import org.graphstream.ui.view.Viewer;
 import scala.collection.immutable.RedBlack;
@@ -23,7 +25,6 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         ListPalabras.setEditable(false);
-        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -726,9 +727,9 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TFArbol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(BTAddArbMap))
         );
 
@@ -783,9 +784,9 @@ public class Main extends javax.swing.JFrame {
 
     private void BTDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTDatosActionPerformed
         // TODO add your handling code here:
-        MEnuDAtos.setModal(true);
+        MEnuDAtos.setModal(false);
         MEnuDAtos.pack();
-        MEnuDAtos.setLocationRelativeTo(null);
+        MEnuDAtos.setLocationRelativeTo(this);
         MEnuDAtos.setVisible(true);
     }//GEN-LAST:event_BTDatosActionPerformed
 
@@ -824,7 +825,7 @@ public class Main extends javax.swing.JFrame {
         JLisEditPal.setModel(modPal);
         JEdit.setModal(true);
         JEdit.pack();
-        JEdit.setLocationRelativeTo(null);
+        JEdit.setLocationRelativeTo(this);
         JEdit.setVisible(true);
     }//GEN-LAST:event_EditarBTActionPerformed
 
@@ -854,7 +855,7 @@ public class Main extends javax.swing.JFrame {
                 ListPalabras.append(palabras.get(i) + "\n");
             }
         }
-        JPerfPal.setModal(true);
+        JPerfPal.setModal(false);
         JPerfPal.pack();
         JPerfPal.setLocationRelativeTo(this);
         JPerfPal.setVisible(true);
@@ -911,7 +912,7 @@ public class Main extends javax.swing.JFrame {
             }
         }
         CBPerfiles.setModel(mode);
-        JGeneaMaps.setModal(true);
+        JGeneaMaps.setModal(false);
         JGeneaMaps.pack();
         JGeneaMaps.setLocationRelativeTo(this);
         JGeneaMaps.setVisible(true);
@@ -966,6 +967,7 @@ public class Main extends javax.swing.JFrame {
                     tmp.getEdge(id2).addAttribute("length", length);
                 }
                 perfiles.get(posPer).getMapa().add(tmp);
+                posCP = perfiles.get(posPer).getMapa().size() - 1;
             } else {
                 tmp = perfiles.get(posPer).getMapa().get(posCP);
                 tmp.addNode(select1);
@@ -978,6 +980,15 @@ public class Main extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No pueden ser iguales!!!");
         }
+        for (Node node : perfiles.get(posPer).getMapa().get(posCP)) {
+            node.addAttribute("ui.label", node.getId());
+        }
+
+        for (Edge node : perfiles.get(posPer).getMapa().get(posCP).getEdgeSet()) {
+            node.addAttribute("ui.label",(Object) node.getAttribute("length"));
+        }
+        Viewer view = perfiles.get(posPer).getMapa().get(posCP).display();
+        view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
         ListPal1.clearSelection();
         ListPal2.clearSelection();
         jSliderConectar.setValue(3);
