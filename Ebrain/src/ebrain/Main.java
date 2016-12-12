@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import org.graphstream.algorithm.Dijkstra;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.EdgeRejectedException;
 import org.graphstream.graph.ElementNotFoundException;
@@ -50,6 +51,7 @@ public class Main extends javax.swing.JFrame {
         TFNombreMapa = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         CBPerfiles = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         JEdit = new javax.swing.JDialog();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
@@ -114,7 +116,22 @@ public class Main extends javax.swing.JFrame {
         TAatboles = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        JTrenPensamiento = new javax.swing.JDialog();
+        CBTrenPerfiles = new javax.swing.JComboBox<>();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        JListMapasPerfil = new javax.swing.JList<>();
+        BTVerGrafo = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        JlistNodos = new javax.swing.JList<>();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        JlistNodos1 = new javax.swing.JList<>();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        BTCaminosCortos = new javax.swing.JButton();
+        BTSpaTree = new javax.swing.JButton();
+        BTNodos = new javax.swing.JButton();
         BTDatos = new javax.swing.JButton();
+        BTrenMental = new javax.swing.JButton();
 
         PerfPalaBT.setText("Perfiles/ Palabras/Arboles/Mapas");
         PerfPalaBT.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +216,13 @@ public class Main extends javax.swing.JFrame {
 
         jLabel12.setText("Nombre de Mapa");
 
+        jButton1.setText("Dijktra");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -230,6 +254,10 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(70, 70, 70)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(67, 67, 67))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(57, 57, 57))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +278,9 @@ public class Main extends javax.swing.JFrame {
                         .addGap(26, 26, 26))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(15, 15, 15)
                 .addComponent(BTConectar)
                 .addContainerGap())
         );
@@ -727,9 +757,9 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TFArbol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                 .addComponent(BTAddArbMap))
         );
 
@@ -752,6 +782,109 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        CBTrenPerfiles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBTrenPerfilesActionPerformed(evt);
+            }
+        });
+
+        jScrollPane7.setViewportView(JListMapasPerfil);
+
+        BTVerGrafo.setText("Ver");
+        BTVerGrafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTVerGrafoActionPerformed(evt);
+            }
+        });
+
+        jScrollPane9.setViewportView(JlistNodos);
+
+        jScrollPane10.setViewportView(JlistNodos1);
+
+        jLabel13.setText("Origen");
+
+        jLabel16.setText("Destino");
+
+        BTCaminosCortos.setText("Tren");
+        BTCaminosCortos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTCaminosCortosActionPerformed(evt);
+            }
+        });
+
+        BTSpaTree.setText("Relaciones importantes");
+
+        BTNodos.setText("Ver Nodos");
+        BTNodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNodosActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JTrenPensamientoLayout = new javax.swing.GroupLayout(JTrenPensamiento.getContentPane());
+        JTrenPensamiento.getContentPane().setLayout(JTrenPensamientoLayout);
+        JTrenPensamientoLayout.setHorizontalGroup(
+            JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JTrenPensamientoLayout.createSequentialGroup()
+                .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JTrenPensamientoLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JTrenPensamientoLayout.createSequentialGroup()
+                                .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addGap(40, 40, 40)
+                                .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel16)))
+                            .addGroup(JTrenPensamientoLayout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(BTCaminosCortos))))
+                    .addGroup(JTrenPensamientoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(JTrenPensamientoLayout.createSequentialGroup()
+                                    .addComponent(CBTrenPerfiles, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(82, 82, 82))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JTrenPensamientoLayout.createSequentialGroup()
+                                    .addComponent(BTSpaTree)
+                                    .addGap(18, 18, 18)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JTrenPensamientoLayout.createSequentialGroup()
+                                .addComponent(BTNodos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BTVerGrafo)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        JTrenPensamientoLayout.setVerticalGroup(
+            JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JTrenPensamientoLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BTVerGrafo)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JTrenPensamientoLayout.createSequentialGroup()
+                        .addComponent(CBTrenPerfiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(BTSpaTree)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BTNodos)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JTrenPensamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(BTCaminosCortos)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BTDatos.setText("Datos");
@@ -762,6 +895,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        BTrenMental.setText("Tren Mental");
+        BTrenMental.setMaximumSize(new java.awt.Dimension(74, 23));
+        BTrenMental.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTrenMentalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -769,14 +910,20 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(212, 212, 212)
                 .addComponent(BTDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(193, Short.MAX_VALUE)
+                .addComponent(BTrenMental, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addComponent(BTDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(BTrenMental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         pack();
@@ -917,7 +1064,9 @@ public class Main extends javax.swing.JFrame {
         JGeneaMaps.setLocationRelativeTo(this);
         JGeneaMaps.setVisible(true);
     }//GEN-LAST:event_MapaGeneaBTActionPerformed
-
+    int posPer2 = -1;
+    int posCP2 = -1;
+    int posC2 = -1;
     private void BTConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTConectarActionPerformed
         // TODO add your handling code here:
         String current = TFNombreMapa.getText();
@@ -980,13 +1129,23 @@ public class Main extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No pueden ser iguales!!!");
         }
+        String styleSheet
+                = "node {"
+                + "	fill-color: yellow;"
+                + "}"
+                + "edge {"
+                + "	fill-color: green;"
+                + "}";
+        perfiles.get(posPer).getMapa().get(posCP).addAttribute("ui.stylesheet", styleSheet);
         for (Node node : perfiles.get(posPer).getMapa().get(posCP)) {
             node.addAttribute("ui.label", node.getId());
         }
-
         for (Edge node : perfiles.get(posPer).getMapa().get(posCP).getEdgeSet()) {
-            node.addAttribute("ui.label",(Object) node.getAttribute("length"));
+            node.addAttribute("ui.label", (Object) node.getAttribute("length"));
         }
+        posPer2 = posPer;
+        posCP2 = posCP;
+        posC2 = posC;
         Viewer view = perfiles.get(posPer).getMapa().get(posCP).display();
         view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
         ListPal1.clearSelection();
@@ -1117,6 +1276,123 @@ public class Main extends javax.swing.JFrame {
         JListConexEdit1.setModel(model);
     }//GEN-LAST:event_CBMapasEditActionPerformed
 
+    private void BTrenMentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTrenMentalActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel mod = new DefaultComboBoxModel();
+        if (!perfiles.isEmpty()) {
+            for (int i = 0; i < perfiles.size(); i++) {
+                mod.addElement(perfiles.get(i));
+            }
+        }
+        CBTrenPerfiles.setModel(mod);
+        JTrenPensamiento.setModal(false);
+        JTrenPensamiento.pack();
+        JTrenPensamiento.setLocationRelativeTo(this);
+        JTrenPensamiento.setVisible(true);
+    }//GEN-LAST:event_BTrenMentalActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
+        dijkstra.init(perfiles.get(posPer2).getMapa().get(posCP2));
+        dijkstra.setSource(perfiles.get(posPer2).getMapa().get(posCP2).getNode("1"));
+        dijkstra.compute();
+        for (Node node : dijkstra.getPathNodes(perfiles.get(posPer2).getMapa().get(posCP2).getNode("4"))) {
+            node.addAttribute("ui.style", "fill-color: red;");
+        }
+        for (Edge edge : dijkstra.getTreeEdges()) {
+            edge.addAttribute("ui.style", "fill-color: red;");
+        }
+        Viewer view = perfiles.get(posPer2).getMapa().get(posCP2).display();
+        view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BTVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTVerGrafoActionPerformed
+        // TODO add your handling code here:
+        int posPer = CBTrenPerfiles.getSelectedIndex();
+        int posGra = JListMapasPerfil.getSelectedIndex();
+        Viewer view;
+        if (!JListMapasPerfil.isSelectionEmpty() && !perfiles.isEmpty()) {
+            for (Node node : perfiles.get(posPer).getMapa().get(posGra).getNodeSet()) {
+                node.addAttribute("ui.style", "fill-color: yellow;");
+            }
+            for (Edge edge : perfiles.get(posPer).getMapa().get(posGra).getEdgeSet()) {
+                edge.addAttribute("ui.style", "fill-color: green;");
+            }
+            for (Node node : perfiles.get(posPer).getMapa().get(posGra)) {
+                node.addAttribute("ui.label", node.getId());
+            }
+            for (Edge node : perfiles.get(posPer).getMapa().get(posGra).getEdgeSet()) {
+                node.addAttribute("ui.label", (Object) node.getAttribute("length"));
+            }
+            view = perfiles.get(posPer).getMapa().get(posGra).display();
+            view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+        }
+    }//GEN-LAST:event_BTVerGrafoActionPerformed
+
+    private void CBTrenPerfilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBTrenPerfilesActionPerformed
+        // TODO add your handling code here
+        DefaultListModel mod = new DefaultListModel();
+        int posPer = CBTrenPerfiles.getSelectedIndex();
+        if (CBTrenPerfiles.getItemCount() > 0) {
+            for (int i = 0; i < perfiles.get(posPer).getMapa().size(); i++) {
+                mod.addElement(perfiles.get(posPer).getMapa().get(i));
+            }
+        }
+        JListMapasPerfil.setModel(mod);
+    }//GEN-LAST:event_CBTrenPerfilesActionPerformed
+
+    private void BTNodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNodosActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel mod = new DefaultListModel();
+        int posPer = CBTrenPerfiles.getSelectedIndex();
+        int posGra = JListMapasPerfil.getSelectedIndex();
+        if (!perfiles.isEmpty() && posGra > -1) {
+            for (int i = 0; i < perfiles.get(posPer).getMapa().get(posGra).getNodeCount(); i++) {
+                mod.addElement(perfiles.get(posPer).getMapa().get(posGra).getNode(i));
+            }
+        }
+        JlistNodos.setModel(mod);
+        JlistNodos1.setModel(mod);
+    }//GEN-LAST:event_BTNodosActionPerformed
+
+    private void BTCaminosCortosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTCaminosCortosActionPerformed
+        // TODO add your handling code here:
+        int posPer = CBTrenPerfiles.getSelectedIndex();
+        int posGra = JListMapasPerfil.getSelectedIndex();
+        int indexA = JlistNodos.getSelectedIndex();
+        int indexB = JlistNodos1.getSelectedIndex();
+
+        if (!perfiles.isEmpty() && !JlistNodos.isSelectionEmpty() && !JlistNodos.isSelectionEmpty()) {
+            for (Node node : perfiles.get(posPer).getMapa().get(posGra).getNodeSet()) {
+                node.addAttribute("ui.style", "fill-color: yellow;");
+            }
+            for (Edge edge : perfiles.get(posPer).getMapa().get(posGra).getEdgeSet()) {
+                edge.addAttribute("ui.style", "fill-color: green;");
+            }
+            String nodA = perfiles.get(posPer).getMapa().get(posGra).getNode(indexA).getId();
+            String nodB = perfiles.get(posPer).getMapa().get(posGra).getNode(indexB).getId();
+            Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
+            dijkstra.init(perfiles.get(posPer).getMapa().get(posGra));
+            dijkstra.setSource(perfiles.get(posPer).getMapa().get(posGra).getNode(nodA));
+            dijkstra.compute();
+            for (Node node : dijkstra.getPathNodes(perfiles.get(posPer).getMapa().get(posGra).getNode(nodB))) {
+                node.addAttribute("ui.style", "fill-color: red;");
+            }
+            for (Edge edge : dijkstra.getPathEdges(perfiles.get(posPer).getMapa().get(posGra).getNode(nodB))) {
+                edge.addAttribute("ui.style", "fill-color: red;");
+            }
+            perfiles.get(posPer).getMapa().get(posGra).getNode(indexA).addAttribute("ui.style", "fill-color: blue;");
+            perfiles.get(posPer).getMapa().get(posGra).getNode(indexB).addAttribute("ui.style", "fill-color: orange;");
+            dijkstra.clear();
+            Viewer view = perfiles.get(posPer).getMapa().get(posCP2).display();
+            view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+        }
+        JlistNodos.clearSelection();
+        JlistNodos1.clearSelection();
+    }//GEN-LAST:event_BTCaminosCortosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1157,11 +1433,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton AgrePErBT;
     private javax.swing.JButton AgregarPalabra;
     private javax.swing.JButton BTAddArbMap;
+    private javax.swing.JButton BTCaminosCortos;
     private javax.swing.JButton BTConectar;
     private javax.swing.JButton BTDatos;
+    private javax.swing.JButton BTNodos;
+    private javax.swing.JButton BTSpaTree;
+    private javax.swing.JButton BTVerGrafo;
+    private javax.swing.JButton BTrenMental;
     private javax.swing.JComboBox<String> CBEditPEr;
     private javax.swing.JComboBox<String> CBMapasEdit;
     private javax.swing.JComboBox<String> CBPerfiles;
+    private javax.swing.JComboBox<String> CBTrenPerfiles;
     private com.toedter.calendar.JDateChooser DateCh;
     private com.toedter.calendar.JDateChooser DateCh1;
     private javax.swing.JButton ELimPalabraBT;
@@ -1176,7 +1458,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog JGeneaMaps;
     private javax.swing.JList<String> JLisEditPal;
     private javax.swing.JList<String> JListConexEdit1;
+    private javax.swing.JList<String> JListMapasPerfil;
     private javax.swing.JDialog JPerfPal;
+    private javax.swing.JDialog JTrenPensamiento;
+    private javax.swing.JList<String> JlistNodos;
+    private javax.swing.JList<String> JlistNodos1;
     private javax.swing.JList<String> ListPal1;
     private javax.swing.JList<String> ListPal2;
     private javax.swing.JTextArea ListPalabras;
@@ -1195,12 +1481,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField TFNombreMapa;
     private javax.swing.JTextField TFPalabra;
     private javax.swing.JTextField TFPalabra1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -1225,6 +1514,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1232,7 +1522,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSliderConectar;
     private javax.swing.JTabbedPane jTabbedPane1;
