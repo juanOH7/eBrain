@@ -45,8 +45,10 @@ public class Main extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         ListPal2 = new javax.swing.JList<>();
         BTConectar = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
-        CBMapas = new javax.swing.JComboBox<>();
+        jSliderConectar = new javax.swing.JSlider();
+        TFNombreMapa = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        CBPerfiles = new javax.swing.JComboBox<>();
         JEdit = new javax.swing.JDialog();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
@@ -60,7 +62,7 @@ public class Main extends javax.swing.JFrame {
         GenCB1 = new javax.swing.JComboBox<>();
         jScrollPane8 = new javax.swing.JScrollPane();
         OBSTA1 = new javax.swing.JTextArea();
-        AgrePErBT1 = new javax.swing.JButton();
+        EditPErBT1 = new javax.swing.JButton();
         DateCh1 = new com.toedter.calendar.JDateChooser();
         CBEditPEr = new javax.swing.JComboBox<>();
         EliminarBT = new javax.swing.JButton();
@@ -71,28 +73,12 @@ public class Main extends javax.swing.JFrame {
         jScrollPane13 = new javax.swing.JScrollPane();
         JLisEditPal = new javax.swing.JList<>();
         ELimPalabraBT = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
-        TFArbol1 = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel24 = new javax.swing.JLabel();
-        TFMapas1 = new javax.swing.JTextField();
-        jSeparator4 = new javax.swing.JSeparator();
-        BTAddArbMap1 = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        JlistArbEdit = new javax.swing.JList<>();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        JlistMapasEdit = new javax.swing.JList<>();
-        ELiminarArbBT = new javax.swing.JButton();
-        EliminarMapasBT = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        JListConex = new javax.swing.JList<>();
-        BTConectar1 = new javax.swing.JButton();
-        jSlider2 = new javax.swing.JSlider();
-        CBMapas1 = new javax.swing.JComboBox<>();
-        EliminarConexBT = new javax.swing.JButton();
+        CBMapasEdit = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        JListConexEdit1 = new javax.swing.JList<>();
+        EliminarConcepBT1 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         JPerfPal = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -122,18 +108,11 @@ public class Main extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         TFArbol = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        TFMapas = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         BTAddArbMap = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         TAatboles = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        TAmapas = new javax.swing.JTextArea();
         BTDatos = new javax.swing.JButton();
 
         PerfPalaBT.setText("Perfiles/ Palabras/Arboles/Mapas");
@@ -185,11 +164,11 @@ public class Main extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 443, Short.MAX_VALUE)
+            .addGap(0, 534, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 324, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Genealogía", jPanel4);
@@ -209,61 +188,70 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jSlider1.setMajorTickSpacing(1);
-        jSlider1.setMaximum(5);
-        jSlider1.setMinimum(1);
-        jSlider1.setMinorTickSpacing(1);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setToolTipText("");
-        jSlider1.setValue(3);
+        jSliderConectar.setMajorTickSpacing(1);
+        jSliderConectar.setMaximum(5);
+        jSliderConectar.setMinimum(1);
+        jSliderConectar.setMinorTickSpacing(1);
+        jSliderConectar.setPaintLabels(true);
+        jSliderConectar.setToolTipText("");
+        jSliderConectar.setValue(3);
+
+        jLabel12.setText("Nombre de Mapa");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(101, 101, 101))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(BTConectar)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(CBMapas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(CBPerfiles, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(TFNombreMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addContainerGap(70, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8)
+                                .addGap(206, 206, 206)
+                                .addComponent(jLabel9))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(BTConectar)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(68, 68, 68)
+                                        .addComponent(jSliderConectar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(70, 70, 70)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(67, 67, 67))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TFNombreMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(CBPerfiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(CBMapas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9)))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)))
+                        .addComponent(jSliderConectar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(BTConectar)
-                .addGap(23, 23, 23))
+                .addContainerGap())
         );
 
         jTabbedPane2.addTab("Mapas", jPanel5);
@@ -303,10 +291,10 @@ public class Main extends javax.swing.JFrame {
         OBSTA1.setRows(5);
         jScrollPane8.setViewportView(OBSTA1);
 
-        AgrePErBT1.setText("Editar");
-        AgrePErBT1.addActionListener(new java.awt.event.ActionListener() {
+        EditPErBT1.setText("Editar");
+        EditPErBT1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgrePErBT1ActionPerformed(evt);
+                EditPErBT1ActionPerformed(evt);
             }
         });
 
@@ -331,7 +319,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(141, 141, 141)
-                        .addComponent(AgrePErBT1))
+                        .addComponent(EditPErBT1))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,7 +351,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CBEditPEr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EliminarBT))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(NomTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -384,7 +372,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(AgrePErBT1)
+                .addComponent(EditPErBT1)
                 .addContainerGap())
         );
 
@@ -436,7 +424,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
@@ -452,164 +440,52 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Conceptos", jPanel7);
 
-        jLabel24.setText("Mapas");
-
-        BTAddArbMap1.setText("Agregar");
-        BTAddArbMap1.addActionListener(new java.awt.event.ActionListener() {
+        CBMapasEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTAddArbMap1ActionPerformed(evt);
+                CBMapasEditActionPerformed(evt);
             }
         });
 
-        jLabel26.setText("Arboles");
+        jLabel23.setText("Conceptos");
 
-        jScrollPane9.setViewportView(JlistArbEdit);
+        jScrollPane12.setViewportView(JListConexEdit1);
 
-        jScrollPane10.setViewportView(JlistMapasEdit);
-
-        ELiminarArbBT.setText("Eliminar");
-
-        EliminarMapasBT.setText("Eliminar");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(153, 153, 153)
-                                .addComponent(BTAddArbMap1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel26)
-                                .addGap(129, 129, 129)
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ELiminarArbBT)
-                                .addGap(66, 66, 66))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addGap(141, 141, 141)
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                                .addComponent(EliminarMapasBT)
-                                .addGap(61, 61, 61))))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(155, 155, 155)
-                                .addComponent(TFArbol1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(157, 157, 157)
-                                .addComponent(TFMapas1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel26)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(ELiminarArbBT)))
-                .addGap(20, 20, 20)
-                .addComponent(TFArbol1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EliminarMapasBT)
-                        .addGap(129, 129, 129)))
-                .addComponent(TFMapas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BTAddArbMap1))
-        );
-
-        jTabbedPane3.addTab("Arboles y Mapas", jPanel8);
-
-        jLabel22.setText("Conexiones");
-
-        jScrollPane11.setViewportView(JListConex);
-
-        BTConectar1.setText("Conectar");
-        BTConectar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTConectar1ActionPerformed(evt);
-            }
-        });
-
-        jSlider2.setMajorTickSpacing(1);
-        jSlider2.setMaximum(5);
-        jSlider2.setMinimum(1);
-        jSlider2.setMinorTickSpacing(1);
-        jSlider2.setPaintLabels(true);
-        jSlider2.setToolTipText("");
-        jSlider2.setValue(3);
-
-        EliminarConexBT.setText("Eliminar");
+        EliminarConcepBT1.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CBMapasEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(CBMapas1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                    .addComponent(jLabel22)
-                                    .addGap(12, 12, 12)))
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(BTConectar1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSlider2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(9, 9, 9)))
-                .addGap(101, 182, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(EliminarConexBT)
-                .addGap(32, 32, 32))
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(EliminarConcepBT1)
+                        .addGap(0, 84, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel23)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(CBMapas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(EliminarConexBT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(BTConectar1)
-                .addGap(54, 54, 54))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CBMapasEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(EliminarConcepBT1)))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Mapas Conceptuales", jPanel9);
@@ -622,7 +498,7 @@ public class Main extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 447, Short.MAX_VALUE)
+            .addGap(0, 397, Short.MAX_VALUE)
         );
 
         jTabbedPane3.addTab("Genealogía", jPanel10);
@@ -640,8 +516,7 @@ public class Main extends javax.swing.JFrame {
             JEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JEditLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane3)
-                .addContainerGap())
+                .addComponent(jTabbedPane3))
         );
 
         jLabel1.setText("Nombre");
@@ -794,10 +669,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel11.setText("Nombre");
 
-        jLabel12.setText("Mapas");
-
-        jLabel13.setText("Nombre");
-
         BTAddArbMap.setText("Agregar");
         BTAddArbMap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -813,12 +684,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel15.setText("Nombres");
 
-        jLabel16.setText("Nombres");
-
-        TAmapas.setColumns(20);
-        TAmapas.setRows(5);
-        jScrollPane7.setViewportView(TAmapas);
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -833,29 +698,18 @@ public class Main extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
                                     .addComponent(TFArbol, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15)
                                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(26, 26, 26))
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(153, 153, 153)
                                         .addComponent(BTAddArbMap)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(TFMapas, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -874,26 +728,11 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TFMapas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BTAddArbMap))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addComponent(BTAddArbMap))
         );
 
-        jTabbedPane1.addTab("Arboles y Mapas", jPanel3);
+        jTabbedPane1.addTab("Arboles", jPanel3);
 
         javax.swing.GroupLayout JPerfPalLayout = new javax.swing.GroupLayout(JPerfPal.getContentPane());
         JPerfPal.getContentPane().setLayout(JPerfPalLayout);
@@ -960,15 +799,11 @@ public class Main extends javax.swing.JFrame {
         DefaultComboBoxModel modMap = new DefaultComboBoxModel();
         DefaultListModel modelMap = new DefaultListModel();
         if (!mapas.isEmpty()) {
-
             for (int i = 0; i < mapas.size(); i++) {
                 modMap.addElement(mapas.get(i));
-                modelMap.addElement(mapas.get(i));
             }
-
         }
-        JlistMapasEdit.setModel(modelMap);
-        CBMapas1.setModel(modMap);
+        CBMapasEdit.setModel(modMap);
         DefaultComboBoxModel modPerf = new DefaultComboBoxModel();
         if (!perfiles.isEmpty()) {
 
@@ -1067,15 +902,15 @@ public class Main extends javax.swing.JFrame {
                 modelo1.addElement(palabras.get(i));
             }
         }
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        if (!mapas.isEmpty()) {
-            for (int i = 0; i < mapas.size(); i++) {
-                model.addElement(mapas.get(i));
-            }
-        }
         ListPal1.setModel(modelo1);
         ListPal2.setModel(modelo1);
-        CBMapas.setModel(model);
+        DefaultComboBoxModel mode = new DefaultComboBoxModel();
+        if (!perfiles.isEmpty()) {
+            for (int i = 0; i < perfiles.size(); i++) {
+                mode.addElement(perfiles.get(i));
+            }
+        }
+        CBPerfiles.setModel(mode);
         JGeneaMaps.setModal(true);
         JGeneaMaps.pack();
         JGeneaMaps.setLocationRelativeTo(this);
@@ -1084,80 +919,83 @@ public class Main extends javax.swing.JFrame {
 
     private void BTConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTConectarActionPerformed
         // TODO add your handling code here:
-        try {
-            String select1 = ListPal1.getSelectedValue();
-            String select2 = ListPal2.getSelectedValue();
-            if (!select1.equals(select2) && !(ListPal1.isSelectionEmpty() || ListPal2.isSelectionEmpty()) && CBMapas.getItemCount() != 0) {
-                int pos = CBMapas.getSelectedIndex();
-                String id = select1 + select2 + "-" + select2 + select1;
-                int length = jSlider1.getValue();
-                AdjacencyListGraph tmp = mapas.get(pos);
+        String current = TFNombreMapa.getText();
+        String select1 = ListPal1.getSelectedValue();
+        String select2 = ListPal2.getSelectedValue();
+        int posPer = -1;
+        int posCP = -1;
+        int posC = -1;
+        if (!mapas.isEmpty()) {
+            for (int i = 0; i < mapas.size(); i++) {
+                if (mapas.get(i).getId().equals(current)) {
+                    posC = i;
+                }
+            }
+            if (posC < 0) {
+                AdjacencyListGraph nuevo = new AdjacencyListGraph(current, false, true);
+                mapas.add(nuevo);
+                posC = mapas.size() - 1;
+            }
+        } else {
+            AdjacencyListGraph nuevo = new AdjacencyListGraph(current, false, true);
+            mapas.add(nuevo);
+            posC = 0;
+        }
+        if (!perfiles.isEmpty()) {
+            posPer = CBPerfiles.getSelectedIndex();
+        }
+        if (!select1.equals(select2) && !(ListPal1.isSelectionEmpty() || ListPal2.isSelectionEmpty()) && posC > -1 && posPer > -1) {
+            String id = "[" + select1 + "-" + select2 + "]";
+            String id2 = "[" + select2 + "-" + select1 + "]";
+            int length = jSliderConectar.getValue();
+            AdjacencyListGraph tmp = mapas.get(posC);
+            boolean contenido = false;
+            if (!perfiles.get(posPer).getMapa().isEmpty()) {
+                for (int i = 0; (contenido == false) && (i < perfiles.get(posPer).getMapa().size()); i++) {
+                    contenido = current.equals(perfiles.get(posPer).getMapa().get(i).getId());
+                    if (contenido) {
+                        posCP = i;
+                    }
+                }
+            }
+            if (!contenido) {
                 tmp.addNode(select1);
                 tmp.addNode(select2);
-                if (tmp.addEdge(id, select1, select2, false) != null) {
+                if (tmp.addEdge(id, select1, select2) != null && tmp.addEdge(id2, select2, select1) != null) {
                     tmp.getEdge(id).addAttribute("length", length);
+                    tmp.getEdge(id2).addAttribute("length", length);
                 }
-                Viewer view = tmp.display();
-                view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
-
+                perfiles.get(posPer).getMapa().add(tmp);
             } else {
-                JOptionPane.showMessageDialog(null, "No pueden ser iguales!!!");
+                tmp = perfiles.get(posPer).getMapa().get(posCP);
+                tmp.addNode(select1);
+                tmp.addNode(select2);
+                if (tmp.addEdge(id, select1, select2) != null && tmp.addEdge(id2, select2, select1) != null) {
+                    tmp.getEdge(id).addAttribute("length", length);
+                    tmp.getEdge(id2).addAttribute("length", length);
+                }
             }
-
-            ListPal1.clearSelection();
-            ListPal2.clearSelection();
-            jSlider1.setValue(3);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+        } else {
+            JOptionPane.showMessageDialog(null, "No pueden ser iguales!!!");
         }
+        ListPal1.clearSelection();
+        ListPal2.clearSelection();
+        jSliderConectar.setValue(3);
+
     }//GEN-LAST:event_BTConectarActionPerformed
 
     private void BTAddArbMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTAddArbMapActionPerformed
         // TODO add your handling code here:
-        if (TFArbol.getText().equals("") && TAmapas.getText().equals("") && TFMapas.getText().equals("")) {
+        if (TFArbol.getText().equals("")) {
             for (String tmp : TAatboles.getText().split("\\n")) {
                 /*if (!arboles.contains(tmp)) {
                     arboles.add(tmp);
                 }*/
             }
-        } else if (TAatboles.getText().equals("") && TAmapas.getText().equals("") && TFMapas.getText().equals("")) {
+        } else if (TAatboles.getText().equals("")) {
             /*if (!arboles.contains(TFArbol.getText())) {
                 arboles.add( nuevo arbol);
             }*/
-        } else if (TFMapas.getText().equals("") && TFArbol.getText().equals("") && TAatboles.getText().equals("")) {
-            for (String tmp : TAmapas.getText().split("\\n")) {
-                AdjacencyListGraph tmps = new AdjacencyListGraph(tmp, false, true);
-                if (!mapas.contains(tmps)) {
-                    mapas.add(tmps);
-                }
-            }
-        } else if (TAmapas.getText().equals("") && TFArbol.getText().equals("") && TAatboles.getText().equals("")) {
-            AdjacencyListGraph tmps = new AdjacencyListGraph(TFMapas.getText(), false, true);
-            if (!mapas.contains(tmps)) {
-                mapas.add(tmps);
-            }
-        } else if (TAmapas.getText().equals("") && TFMapas.getText().equals("")) {
-            /*if (!arboles.contains(este arbol) {
-                arboles.add(este arbol);
-            }
-            TFPalabra.setText("");
-            for (String tmp : TAPalabras.getText().split("\\n")) {
-                nuevo arbol tmps
-                if (!arboles.contains(tmps)) {
-                    arboles.add(tmps);
-                }
-            }*/
-        } else if (TFArbol.getText().equals("") && TAatboles.getText().equals("")) {
-            for (String tmp : TAmapas.getText().split("\\n")) {
-                AdjacencyListGraph tmps = new AdjacencyListGraph(tmp, false, true);
-                if (!mapas.contains(tmps)) {
-                    mapas.add(tmps);
-                }
-            }
-            AdjacencyListGraph tmps = new AdjacencyListGraph(TFMapas.getText(), false, true);
-            if (!mapas.contains(tmps)) {
-                mapas.add(tmps);
-            }
         } else {
             /*if (!arboles.contains(este arbol) {
                 arboles.add(este arbol);
@@ -1169,24 +1007,72 @@ public class Main extends javax.swing.JFrame {
                     arboles.add(tmps);
                 }
             }*/
-            for (String tmp : TAmapas.getText().split("\\n")) {
-                AdjacencyListGraph tmps = new AdjacencyListGraph(tmp, false, true);
-                if (!mapas.contains(tmps)) {
-                    mapas.add(tmps);
-                }
-            }
-            AdjacencyListGraph tmps = new AdjacencyListGraph(TFMapas.getText(), false, true);
-            if (!mapas.contains(tmps)) {
-                mapas.add(tmps);
-            }
         }
         TAatboles.setText("");
-        TAmapas.setText("");
-        TFMapas.setText("");
         TFArbol.setText("");
     }//GEN-LAST:event_BTAddArbMapActionPerformed
 
-    private void AgrePErBT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgrePErBT1ActionPerformed
+    private void ELimPalabraBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELimPalabraBTActionPerformed
+        // TODO add your handling code here:
+        if (JLisEditPal.getSelectedIndex() > -1) {
+            palabras.remove(JLisEditPal.getSelectedIndex());
+        }
+        DefaultListModel modPal = new DefaultListModel();
+        if (!palabras.isEmpty()) {
+            for (int i = 0; i < palabras.size(); i++) {
+                modPal.addElement(palabras.get(i));
+            }
+        }
+        JLisEditPal.setModel(modPal);
+        TFPalabra1.setText("");
+    }//GEN-LAST:event_ELimPalabraBTActionPerformed
+
+    private void EditPalabra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPalabra1ActionPerformed
+        // TODO add your handling code here:
+        if (JLisEditPal.getSelectedIndex() > -1) {
+            palabras.set(JLisEditPal.getSelectedIndex(), TFPalabra1.getText());
+
+        }
+        DefaultListModel modPal = new DefaultListModel();
+        if (!palabras.isEmpty()) {
+            for (int i = 0; i < palabras.size(); i++) {
+                modPal.addElement(palabras.get(i));
+            }
+        }
+        JLisEditPal.setModel(modPal);
+        TFPalabra1.setText("");
+    }//GEN-LAST:event_EditPalabra1ActionPerformed
+
+    private void EliminarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBTActionPerformed
+        // TODO add your handling code here:
+        try {
+            System.out.println(perfiles.remove((Perfil) CBEditPEr.getSelectedItem()));
+            DefaultComboBoxModel modPerf = new DefaultComboBoxModel();
+            if (!perfiles.isEmpty()) {
+
+                for (int i = 0; i < perfiles.size(); i++) {
+                    modPerf.addElement(perfiles.get(i));
+                }
+
+            }
+            CBEditPEr.setModel(modPerf);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_EliminarBTActionPerformed
+
+    private void CBEditPErActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBEditPErActionPerformed
+        // TODO add your handling code here:
+        int pos = CBEditPEr.getSelectedIndex();
+        Perfil actual = perfiles.get(pos);
+        NomTF1.setText(actual.getNombre());
+        RazaCB1.setSelectedItem(actual.getRaza());
+        GenCB1.setSelectedItem(actual.getGenero());
+        DateCh1.setDate(new Date(actual.getFechaN().getTime()));
+        OBSTA1.setText(actual.getObservaciones());
+    }//GEN-LAST:event_CBEditPErActionPerformed
+
+    private void EditPErBT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPErBT1ActionPerformed
         // TODO add your handling code here:
         String nombre = NomTF1.getText(), raza = RazaCB1.getSelectedItem().toString();
         String genero = GenCB1.getSelectedItem().toString(), observaciones = OBSTA1.getText();
@@ -1205,76 +1091,20 @@ public class Main extends javax.swing.JFrame {
         GenCB1.setSelectedIndex(0);
         OBSTA1.setText("");
         DateCh1.setDate(new Date(System.currentTimeMillis()));
-    }//GEN-LAST:event_AgrePErBT1ActionPerformed
+    }//GEN-LAST:event_EditPErBT1ActionPerformed
 
-    private void EditPalabra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPalabra1ActionPerformed
+    private void CBMapasEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBMapasEditActionPerformed
         // TODO add your handling code here:
-        if (JLisEditPal.getSelectedIndex() > -1) {
-            palabras.set(JLisEditPal.getSelectedIndex(), TFPalabra1.getText());
-
-        }
-        DefaultListModel modPal = new DefaultListModel();
-        if (!palabras.isEmpty()) {
-            for (int i = 0; i < palabras.size(); i++) {
-                modPal.addElement(palabras.get(i));
+        int pos = CBMapasEdit.getSelectedIndex();
+        AdjacencyListGraph actual = mapas.get(pos);
+        DefaultListModel model = new DefaultListModel();
+        if (actual.getEdgeCount() > 0) {
+            for (int i = 0; i < actual.getEdgeCount(); i++) {
+                model.addElement(actual.getNode(i));
             }
         }
-        JLisEditPal.setModel(modPal);
-        TFPalabra1.setText("");
-    }//GEN-LAST:event_EditPalabra1ActionPerformed
-
-    private void BTAddArbMap1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTAddArbMap1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BTAddArbMap1ActionPerformed
-
-    private void BTConectar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTConectar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BTConectar1ActionPerformed
-
-    private void CBEditPErActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBEditPErActionPerformed
-        // TODO add your handling code here:
-        int pos = CBEditPEr.getSelectedIndex();
-        Perfil actual = perfiles.get(pos);
-        NomTF1.setText(actual.getNombre());
-        RazaCB1.setSelectedItem(actual.getRaza());
-        GenCB1.setSelectedItem(actual.getGenero());
-        DateCh1.setDate(new Date(actual.getFechaN().getTime()));
-        OBSTA1.setText(actual.getObservaciones());
-    }//GEN-LAST:event_CBEditPErActionPerformed
-
-    private void EliminarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBTActionPerformed
-        // TODO add your handling code here:
-        try {
-            System.out.println(perfiles.remove((Perfil) CBEditPEr.getSelectedItem()));
-            DefaultComboBoxModel modPerf = new DefaultComboBoxModel();
-            if (!perfiles.isEmpty()) {
-
-                for (int i = 0; i < perfiles.size(); i++) {
-                    modPerf.addElement(perfiles.get(i));
-                }
-
-            }
-            CBEditPEr.setModel(modPerf);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-    }//GEN-LAST:event_EliminarBTActionPerformed
-
-    private void ELimPalabraBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELimPalabraBTActionPerformed
-        // TODO add your handling code here:
-        if (JLisEditPal.getSelectedIndex() > -1) {
-            palabras.remove(JLisEditPal.getSelectedIndex());
-        }
-        DefaultListModel modPal = new DefaultListModel();
-        if (!palabras.isEmpty()) {
-            for (int i = 0; i < palabras.size(); i++) {
-                modPal.addElement(palabras.get(i));
-            }
-        }
-        JLisEditPal.setModel(modPal);
-        TFPalabra1.setText("");
-    }//GEN-LAST:event_ELimPalabraBTActionPerformed
+        JListConexEdit1.setModel(model);
+    }//GEN-LAST:event_CBMapasEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1314,34 +1144,28 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgrePErBT;
-    private javax.swing.JButton AgrePErBT1;
     private javax.swing.JButton AgregarPalabra;
     private javax.swing.JButton BTAddArbMap;
-    private javax.swing.JButton BTAddArbMap1;
     private javax.swing.JButton BTConectar;
-    private javax.swing.JButton BTConectar1;
     private javax.swing.JButton BTDatos;
     private javax.swing.JComboBox<String> CBEditPEr;
-    private javax.swing.JComboBox<String> CBMapas;
-    private javax.swing.JComboBox<String> CBMapas1;
+    private javax.swing.JComboBox<String> CBMapasEdit;
+    private javax.swing.JComboBox<String> CBPerfiles;
     private com.toedter.calendar.JDateChooser DateCh;
     private com.toedter.calendar.JDateChooser DateCh1;
     private javax.swing.JButton ELimPalabraBT;
-    private javax.swing.JButton ELiminarArbBT;
+    private javax.swing.JButton EditPErBT1;
     private javax.swing.JButton EditPalabra1;
     private javax.swing.JButton EditarBT;
     private javax.swing.JButton EliminarBT;
-    private javax.swing.JButton EliminarConexBT;
-    private javax.swing.JButton EliminarMapasBT;
+    private javax.swing.JButton EliminarConcepBT1;
     private javax.swing.JComboBox<String> GenCB;
     private javax.swing.JComboBox<String> GenCB1;
     private javax.swing.JDialog JEdit;
     private javax.swing.JDialog JGeneaMaps;
     private javax.swing.JList<String> JLisEditPal;
-    private javax.swing.JList<String> JListConex;
+    private javax.swing.JList<String> JListConexEdit1;
     private javax.swing.JDialog JPerfPal;
-    private javax.swing.JList<String> JlistArbEdit;
-    private javax.swing.JList<String> JlistMapasEdit;
     private javax.swing.JList<String> ListPal1;
     private javax.swing.JList<String> ListPal2;
     private javax.swing.JTextArea ListPalabras;
@@ -1356,30 +1180,23 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> RazaCB1;
     private javax.swing.JTextArea TAPalabras;
     private javax.swing.JTextArea TAatboles;
-    private javax.swing.JTextArea TAmapas;
     private javax.swing.JTextField TFArbol;
-    private javax.swing.JTextField TFArbol1;
-    private javax.swing.JTextField TFMapas;
-    private javax.swing.JTextField TFMapas1;
+    private javax.swing.JTextField TFNombreMapa;
     private javax.swing.JTextField TFPalabra;
     private javax.swing.JTextField TFPalabra1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1395,26 +1212,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
+    private javax.swing.JSlider jSliderConectar;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;

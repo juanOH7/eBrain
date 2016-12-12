@@ -3,6 +3,7 @@ package ebrain;
 import java.util.Date;
 import java.util.LinkedList;
 import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.AdjacencyListGraph;
 
 public class Perfil {
 
@@ -12,7 +13,7 @@ public class Perfil {
     private Date fechaN;
     private String observaciones;
     private LinkedList<Perfil> hijos;
-    private LinkedList<Graph> mapa;
+    private LinkedList<AdjacencyListGraph> mapa;
 
     @Override
     public String toString() {
@@ -77,11 +78,11 @@ public class Perfil {
         this.hijos = hijos;
     }
 
-    public LinkedList<Graph> getMapa() {
+    public LinkedList<AdjacencyListGraph> getMapa() {
         return mapa;
     }
 
-    public void setMapa(LinkedList<Graph> mapa) {
+    public void setMapa(LinkedList<AdjacencyListGraph> mapa) {
         this.mapa = mapa;
     }
 
