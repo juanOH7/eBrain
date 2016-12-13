@@ -125,14 +125,14 @@ public class Main extends javax.swing.JFrame {
         Jranking = new javax.swing.JDialog();
         jScrollPane6 = new javax.swing.JScrollPane();
         ListArbo = new javax.swing.JList<>();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        ListArbo1 = new javax.swing.JList<>();
         CBRaKArb = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        ListArbo2 = new javax.swing.JList<>();
         BTDatos = new javax.swing.JButton();
         BTrenMental = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        BTRank = new javax.swing.JButton();
 
         PerfPalaBT.setText("Perfiles/ Palabras/Arboles/Mapas");
         PerfPalaBT.addActionListener(new java.awt.event.ActionListener() {
@@ -855,48 +855,55 @@ public class Main extends javax.swing.JFrame {
 
         jScrollPane6.setViewportView(ListArbo);
 
-        jScrollPane15.setViewportView(ListArbo1);
+        CBRaKArb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBRaKArbActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Conocimiento");
 
         jLabel15.setText("Conexiones");
 
+        jScrollPane16.setViewportView(ListArbo2);
+
         javax.swing.GroupLayout JrankingLayout = new javax.swing.GroupLayout(Jranking.getContentPane());
         Jranking.getContentPane().setLayout(JrankingLayout);
         JrankingLayout.setHorizontalGroup(
             JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JrankingLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JrankingLayout.createSequentialGroup()
                 .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JrankingLayout.createSequentialGroup()
-                        .addComponent(CBRaKArb, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addComponent(CBRaKArb, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JrankingLayout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))))
-            .addGroup(JrankingLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(72, 72, 72))
+                        .addGap(59, 59, 59)
+                        .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(60, 60, 60))
         );
         JrankingLayout.setVerticalGroup(
             JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JrankingLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(CBRaKArb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43))
+                .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JrankingLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JrankingLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(CBRaKArb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -917,7 +924,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Ranking");
+        BTRank.setText("Ranking");
+        BTRank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTRankActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -931,7 +943,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BTDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3))
+                            .addComponent(BTRank))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
@@ -943,7 +955,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addComponent(BTrenMental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
-                .addComponent(jButton3)
+                .addComponent(BTRank)
                 .addContainerGap(66, Short.MAX_VALUE))
         );
 
@@ -1483,6 +1495,31 @@ public class Main extends javax.swing.JFrame {
         LisTPErArb1.clearSelection();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void BTRankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTRankActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel mod = new DefaultComboBoxModel();
+        if (!arboles.isEmpty()) {
+            for (int i = 0; i < arboles.size(); i++) {
+                mod.addElement(arboles.get(i));
+            }
+        }
+        CBRaKArb.setModel(mod);
+        Jranking.setModal(false);
+        Jranking.pack();
+        Jranking.setLocationRelativeTo(this);
+        Jranking.setVisible(true);
+    }//GEN-LAST:event_BTRankActionPerformed
+
+    private void CBRaKArbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBRaKArbActionPerformed
+        // TODO add your handling code here:
+        int posAr = CBRaKArb.getSelectedIndex();
+        if (posAr > -1) {
+            for (int i = 0; i < 10; i++) {
+                
+            }
+        }
+    }//GEN-LAST:event_CBRaKArbActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1526,6 +1563,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BTConectar;
     private javax.swing.JButton BTDatos;
     private javax.swing.JButton BTNodos;
+    private javax.swing.JButton BTRank;
     private javax.swing.JButton BTSpaTree;
     private javax.swing.JButton BTVerGrafo;
     private javax.swing.JButton BTrenMental;
@@ -1557,7 +1595,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> LisTPErArb;
     private javax.swing.JList<String> LisTPErArb1;
     private javax.swing.JList<String> ListArbo;
-    private javax.swing.JList<String> ListArbo1;
+    private javax.swing.JList<String> ListArbo2;
     private javax.swing.JList<String> ListPal1;
     private javax.swing.JList<String> ListPal2;
     private javax.swing.JTextArea ListPalabras;
@@ -1577,7 +1615,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField TFPalabra1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1613,7 +1650,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
