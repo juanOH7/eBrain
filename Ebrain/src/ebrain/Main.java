@@ -1512,12 +1512,7 @@ public class Main extends javax.swing.JFrame {
 
     private void CBRaKArbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBRaKArbActionPerformed
         // TODO add your handling code here:
-        int posAr = CBRaKArb.getSelectedIndex();
-        if (posAr > -1) {
-            for (int i = 0; i < 10; i++) {
-                
-            }
-        }
+        
     }//GEN-LAST:event_CBRaKArbActionPerformed
 
     /**

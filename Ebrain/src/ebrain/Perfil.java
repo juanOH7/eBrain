@@ -82,6 +82,20 @@ public class Perfil {
         return mapa;
     }
 
+    public int numCone() {
+        int cant = 0;
+        if (!mapa.isEmpty()) {
+            for (int i = 0; i < mapa.size(); i++) {
+                cant += mapa.get(i).getEdgeCount();
+            }
+        }
+        return cant;
+    }
+
+    public int numCon() {
+        return mapa.size();
+    }
+
     public void setMapa(LinkedList<AdjacencyListGraph> mapa) {
         this.mapa = mapa;
     }
