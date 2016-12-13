@@ -34,6 +34,13 @@ public class Main extends javax.swing.JFrame {
         JGeneaMaps = new javax.swing.JDialog();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        LisTPErArb = new javax.swing.JList<>();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        LisTPErArb1 = new javax.swing.JList<>();
+        jButton2 = new javax.swing.JButton();
+        TFArbol = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -77,7 +84,6 @@ public class Main extends javax.swing.JFrame {
         jScrollPane12 = new javax.swing.JScrollPane();
         JListConexEdit1 = new javax.swing.JList<>();
         EliminarConcepBT1 = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
         JPerfPal = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -102,15 +108,6 @@ public class Main extends javax.swing.JFrame {
         AgregarPalabra = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListPalabras = new javax.swing.JTextArea();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        TFArbol = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        BTAddArbMap = new javax.swing.JButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        TAatboles = new javax.swing.JTextArea();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         JTrenPensamiento = new javax.swing.JDialog();
         CBTrenPerfiles = new javax.swing.JComboBox<>();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -125,8 +122,17 @@ public class Main extends javax.swing.JFrame {
         BTCaminosCortos = new javax.swing.JButton();
         BTSpaTree = new javax.swing.JButton();
         BTNodos = new javax.swing.JButton();
+        Jranking = new javax.swing.JDialog();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ListArbo = new javax.swing.JList<>();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        ListArbo1 = new javax.swing.JList<>();
+        CBRaKArb = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         BTDatos = new javax.swing.JButton();
         BTrenMental = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         PerfPalaBT.setText("Perfiles/ Palabras/Arboles/Mapas");
         PerfPalaBT.addActionListener(new java.awt.event.ActionListener() {
@@ -173,15 +179,55 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
+        jScrollPane11.setViewportView(LisTPErArb);
+
+        jScrollPane14.setViewportView(LisTPErArb1);
+
+        jButton2.setText("Conectar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Nombre Arbol");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(233, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(224, 224, 224))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(43, 43, 43)
+                .addComponent(TFArbol, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 324, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TFArbol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
+                .addComponent(jButton2)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Genealogía", jPanel4);
@@ -211,7 +257,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel12.setText("Nombre de Mapa");
 
-        jButton1.setText("Dijktra");
+        jButton1.setText("Ver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -516,19 +562,6 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Mapas Conceptuales", jPanel9);
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
-        );
-
-        jTabbedPane3.addTab("Genealogía", jPanel10);
-
         javax.swing.GroupLayout JEditLayout = new javax.swing.GroupLayout(JEdit.getContentPane());
         JEdit.getContentPane().setLayout(JEditLayout);
         JEditLayout.setHorizontalGroup(
@@ -693,73 +726,6 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Conceptos", jPanel2);
 
-        jLabel11.setText("Nombre");
-
-        BTAddArbMap.setText("Agregar");
-        BTAddArbMap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTAddArbMapActionPerformed(evt);
-            }
-        });
-
-        TAatboles.setColumns(20);
-        TAatboles.setRows(5);
-        jScrollPane6.setViewportView(TAatboles);
-
-        jLabel14.setText("Arboles");
-
-        jLabel15.setText("Nombres");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(TFArbol, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(153, 153, 153)
-                                        .addComponent(BTAddArbMap)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel14)
-                .addGap(9, 9, 9)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TFArbol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
-                .addComponent(BTAddArbMap))
-        );
-
-        jTabbedPane1.addTab("Arboles", jPanel3);
-
         javax.swing.GroupLayout JPerfPalLayout = new javax.swing.GroupLayout(JPerfPal.getContentPane());
         JPerfPal.getContentPane().setLayout(JPerfPalLayout);
         JPerfPalLayout.setHorizontalGroup(
@@ -796,8 +762,10 @@ public class Main extends javax.swing.JFrame {
 
         jScrollPane10.setViewportView(JlistNodos1);
 
+        jLabel13.setForeground(new java.awt.Color(0, 51, 204));
         jLabel13.setText("Origen");
 
+        jLabel16.setForeground(new java.awt.Color(255, 51, 0));
         jLabel16.setText("Destino");
 
         BTCaminosCortos.setText("Tren");
@@ -885,6 +853,52 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jScrollPane6.setViewportView(ListArbo);
+
+        jScrollPane15.setViewportView(ListArbo1);
+
+        jLabel14.setText("Conocimiento");
+
+        jLabel15.setText("Conexiones");
+
+        javax.swing.GroupLayout JrankingLayout = new javax.swing.GroupLayout(Jranking.getContentPane());
+        Jranking.getContentPane().setLayout(JrankingLayout);
+        JrankingLayout.setHorizontalGroup(
+            JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JrankingLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JrankingLayout.createSequentialGroup()
+                        .addComponent(CBRaKArb, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(JrankingLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))))
+            .addGroup(JrankingLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addGap(72, 72, 72))
+        );
+        JrankingLayout.setVerticalGroup(
+            JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JrankingLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(CBRaKArb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JrankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BTDatos.setText("Datos");
@@ -903,27 +917,34 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Ranking");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(212, 212, 212)
-                .addComponent(BTDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addComponent(BTrenMental, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BTrenMental, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BTDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addGap(50, 50, 50)
                 .addComponent(BTDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(BTrenMental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(jButton3)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -976,24 +997,6 @@ public class Main extends javax.swing.JFrame {
         JEdit.setVisible(true);
     }//GEN-LAST:event_EditarBTActionPerformed
 
-    private void AgrePErBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgrePErBTActionPerformed
-        // TODO add your handling code here:
-        String nombre = NomTF.getText(), raza = RazaCB.getSelectedItem().toString();
-        String genero = GenCB.getSelectedItem().toString(), observaciones = OBSTA.getText();
-        Date nacimiento = DateCh.getDate();
-        Perfil nuevo = new Perfil(nombre, raza, genero, nacimiento, observaciones);
-        if (!perfiles.contains(nuevo)) {
-            perfiles.add(nuevo);
-        } else {
-            JOptionPane.showMessageDialog(null, "Ya existe este perfil!!!");
-        }
-        NomTF.setText("");
-        RazaCB.setSelectedIndex(0);
-        GenCB.setSelectedIndex(0);
-        OBSTA.setText("");
-        DateCh.setDate(new Date(System.currentTimeMillis()));
-    }//GEN-LAST:event_AgrePErBTActionPerformed
-
     private void PerfPalaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfPalaBTActionPerformed
         // TODO add your handling code here:
         if (!palabras.isEmpty()) {
@@ -1008,40 +1011,6 @@ public class Main extends javax.swing.JFrame {
         JPerfPal.setVisible(true);
     }//GEN-LAST:event_PerfPalaBTActionPerformed
 
-    private void AgregarPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarPalabraActionPerformed
-        // TODO add your handling code here:
-        if (TFPalabra.getText().equals("")) {
-            for (String tmp : TAPalabras.getText().split("\\n")) {
-                if (!palabras.contains(tmp)) {
-                    palabras.add(tmp);
-                    ListPalabras.append(tmp + "\n");
-                }
-            }
-            TAPalabras.setText("");
-        } else if (TAPalabras.getText().equals("")) {
-            if (!palabras.contains(TFPalabra.getText())) {
-                palabras.add(TFPalabra.getText());
-                ListPalabras.append(TFPalabra.getText() + "\n");
-            }
-            TFPalabra.setText("");
-        } else {
-            if (!palabras.contains(TFPalabra.getText())) {
-                palabras.add(TFPalabra.getText());
-                ListPalabras.append(TFPalabra.getText() + "\n");
-            }
-            TFPalabra.setText("");
-            for (String tmp : TAPalabras.getText().split("\\n")) {
-                if (!palabras.contains(tmp)) {
-                    palabras.add(tmp);
-                    ListPalabras.append(tmp + "\n");
-                }
-            }
-            TAPalabras.setText("");
-
-        }
-        System.out.println(palabras);
-    }//GEN-LAST:event_AgregarPalabraActionPerformed
-
     private void MapaGeneaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapaGeneaBTActionPerformed
         // TODO add your handling code here:
         DefaultListModel modelo1 = new DefaultListModel();
@@ -1053,11 +1022,15 @@ public class Main extends javax.swing.JFrame {
         ListPal1.setModel(modelo1);
         ListPal2.setModel(modelo1);
         DefaultComboBoxModel mode = new DefaultComboBoxModel();
+        DefaultListModel modelo2 = new DefaultListModel();
         if (!perfiles.isEmpty()) {
             for (int i = 0; i < perfiles.size(); i++) {
                 mode.addElement(perfiles.get(i));
+                modelo2.addElement(perfiles.get(i));
             }
         }
+        LisTPErArb.setModel(modelo2);
+        LisTPErArb1.setModel(modelo2);
         CBPerfiles.setModel(mode);
         JGeneaMaps.setModal(false);
         JGeneaMaps.pack();
@@ -1065,6 +1038,9 @@ public class Main extends javax.swing.JFrame {
         JGeneaMaps.setVisible(true);
     }//GEN-LAST:event_MapaGeneaBTActionPerformed
 
+    int posP = -1;
+    int posCPp = -1;
+    int posCc = -1;
     private void BTConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTConectarActionPerformed
         // TODO add your handling code here:
         String current = TFNombreMapa.getText();
@@ -1143,134 +1119,14 @@ public class Main extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No pueden ser iguales!!!");
         }
-
+        posP = posPer;
+        posCc = posC;
+        posCPp = posCP;
         ListPal1.clearSelection();
         ListPal2.clearSelection();
         jSliderConectar.setValue(3);
 
     }//GEN-LAST:event_BTConectarActionPerformed
-
-    private void BTAddArbMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTAddArbMapActionPerformed
-        // TODO add your handling code here:
-        if (TFArbol.getText().equals("")) {
-            for (String tmp : TAatboles.getText().split("\\n")) {
-                /*if (!arboles.contains(tmp)) {
-                    arboles.add(tmp);
-                }*/
-            }
-        } else if (TAatboles.getText().equals("")) {
-            /*if (!arboles.contains(TFArbol.getText())) {
-                arboles.add( nuevo arbol);
-            }*/
-        } else {
-            /*if (!arboles.contains(este arbol) {
-                arboles.add(este arbol);
-            }
-            TFPalabra.setText("");
-            for (String tmp : TAPalabras.getText().split("\\n")) {
-                nuevo arbol tmps
-                if (!arboles.contains(tmps)) {
-                    arboles.add(tmps);
-                }
-            }*/
-        }
-        TAatboles.setText("");
-        TFArbol.setText("");
-    }//GEN-LAST:event_BTAddArbMapActionPerformed
-
-    private void ELimPalabraBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELimPalabraBTActionPerformed
-        // TODO add your handling code here:
-        if (JLisEditPal.getSelectedIndex() > -1) {
-            palabras.remove(JLisEditPal.getSelectedIndex());
-        }
-        DefaultListModel modPal = new DefaultListModel();
-        if (!palabras.isEmpty()) {
-            for (int i = 0; i < palabras.size(); i++) {
-                modPal.addElement(palabras.get(i));
-            }
-        }
-        JLisEditPal.setModel(modPal);
-        TFPalabra1.setText("");
-    }//GEN-LAST:event_ELimPalabraBTActionPerformed
-
-    private void EditPalabra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPalabra1ActionPerformed
-        // TODO add your handling code here:
-        if (JLisEditPal.getSelectedIndex() > -1) {
-            palabras.set(JLisEditPal.getSelectedIndex(), TFPalabra1.getText());
-
-        }
-        DefaultListModel modPal = new DefaultListModel();
-        if (!palabras.isEmpty()) {
-            for (int i = 0; i < palabras.size(); i++) {
-                modPal.addElement(palabras.get(i));
-            }
-        }
-        JLisEditPal.setModel(modPal);
-        TFPalabra1.setText("");
-    }//GEN-LAST:event_EditPalabra1ActionPerformed
-
-    private void EliminarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBTActionPerformed
-        // TODO add your handling code here:
-        try {
-            System.out.println(perfiles.remove((Perfil) CBEditPEr.getSelectedItem()));
-            DefaultComboBoxModel modPerf = new DefaultComboBoxModel();
-            if (!perfiles.isEmpty()) {
-
-                for (int i = 0; i < perfiles.size(); i++) {
-                    modPerf.addElement(perfiles.get(i));
-                }
-
-            }
-            CBEditPEr.setModel(modPerf);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_EliminarBTActionPerformed
-
-    private void CBEditPErActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBEditPErActionPerformed
-        // TODO add your handling code here:
-        int pos = CBEditPEr.getSelectedIndex();
-        Perfil actual = perfiles.get(pos);
-        NomTF1.setText(actual.getNombre());
-        RazaCB1.setSelectedItem(actual.getRaza());
-        GenCB1.setSelectedItem(actual.getGenero());
-        DateCh1.setDate(new Date(actual.getFechaN().getTime()));
-        OBSTA1.setText(actual.getObservaciones());
-    }//GEN-LAST:event_CBEditPErActionPerformed
-
-    private void EditPErBT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPErBT1ActionPerformed
-        // TODO add your handling code here:
-        String nombre = NomTF1.getText(), raza = RazaCB1.getSelectedItem().toString();
-        String genero = GenCB1.getSelectedItem().toString(), observaciones = OBSTA1.getText();
-        Date nacimiento = DateCh1.getDate();
-        int pos = CBEditPEr.getSelectedIndex();
-        if (pos > -1) {
-            Perfil actual = perfiles.get(pos);
-            actual.setNombre(nombre);
-            actual.setFechaN(nacimiento);
-            actual.setGenero(genero);
-            actual.setObservaciones(observaciones);
-            actual.setRaza(raza);
-        }
-        NomTF1.setText("");
-        RazaCB1.setSelectedIndex(0);
-        GenCB1.setSelectedIndex(0);
-        OBSTA1.setText("");
-        DateCh1.setDate(new Date(System.currentTimeMillis()));
-    }//GEN-LAST:event_EditPErBT1ActionPerformed
-
-    private void CBMapasEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBMapasEditActionPerformed
-        // TODO add your handling code here:
-        int pos = CBMapasEdit.getSelectedIndex();
-        AdjacencyListGraph actual = mapas.get(pos);
-        DefaultListModel model = new DefaultListModel();
-        if (actual.getEdgeCount() > 0) {
-            for (int i = 0; i < actual.getEdgeCount(); i++) {
-                model.addElement(actual.getNode(i));
-            }
-        }
-        JListConexEdit1.setModel(model);
-    }//GEN-LAST:event_CBMapasEditActionPerformed
 
     private void BTrenMentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTrenMentalActionPerformed
         // TODO add your handling code here:
@@ -1289,7 +1145,22 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
+        String styleSheet
+                = "node {"
+                + "	fill-color: yellow;"
+                + "}"
+                + "edge {"
+                + "	fill-color: green;"
+                + "}";
+        perfiles.get(posP).getMapa().get(posCPp).addAttribute("ui.stylesheet", styleSheet);
+        for (Node node : perfiles.get(posP).getMapa().get(posCPp)) {
+            node.addAttribute("ui.label", node.getId());
+        }
+        for (Edge node : perfiles.get(posP).getMapa().get(posCPp).getEdgeSet()) {
+            node.addAttribute("ui.label", (Object) node.getAttribute("length"));
+        }
+        Viewer view = perfiles.get(posP).getMapa().get(posCPp).display();
+        view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1384,16 +1255,233 @@ public class Main extends javax.swing.JFrame {
         int posGra = JListMapasPerfil.getSelectedIndex();
         if (posPer > -1 && posGra > -1) {
             String css = "edge .notintree {size:1px;fill-color:gray;} "
-                    + "edge .intree {size:3px;fill-color:black;}";
+                    + "edge .intree {size:1px;fill-color:black;}";
             perfiles.get(posPer).getMapa().get(posGra).addAttribute("ui.stylesheet", css);
             Viewer view = perfiles.get(posPer).getMapa().get(posGra).display();
             view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
             Prim prim = new Prim("ui.class", "intree", "notintree");
             prim.init(perfiles.get(posPer).getMapa().get(posGra));
             prim.compute();
-            
+
         }
     }//GEN-LAST:event_BTSpaTreeActionPerformed
+
+    private void AgregarPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarPalabraActionPerformed
+        // TODO add your handling code here:
+        if (TFPalabra.getText().equals("")) {
+            for (String tmp : TAPalabras.getText().split("\\n")) {
+                if (!palabras.contains(tmp)) {
+                    palabras.add(tmp);
+                    ListPalabras.append(tmp + "\n");
+                }
+            }
+            TAPalabras.setText("");
+        } else if (TAPalabras.getText().equals("")) {
+            if (!palabras.contains(TFPalabra.getText())) {
+                palabras.add(TFPalabra.getText());
+                ListPalabras.append(TFPalabra.getText() + "\n");
+            }
+            TFPalabra.setText("");
+        } else {
+            if (!palabras.contains(TFPalabra.getText())) {
+                palabras.add(TFPalabra.getText());
+                ListPalabras.append(TFPalabra.getText() + "\n");
+            }
+            TFPalabra.setText("");
+            for (String tmp : TAPalabras.getText().split("\\n")) {
+                if (!palabras.contains(tmp)) {
+                    palabras.add(tmp);
+                    ListPalabras.append(tmp + "\n");
+                }
+            }
+            TAPalabras.setText("");
+
+        }
+        System.out.println(palabras);
+    }//GEN-LAST:event_AgregarPalabraActionPerformed
+
+    private void AgrePErBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgrePErBTActionPerformed
+        // TODO add your handling code here:
+        String nombre = NomTF.getText(), raza = RazaCB.getSelectedItem().toString();
+        String genero = GenCB.getSelectedItem().toString(), observaciones = OBSTA.getText();
+        Date nacimiento = DateCh.getDate();
+        Perfil nuevo = new Perfil(nombre, raza, genero, nacimiento, observaciones);
+        if (!perfiles.contains(nuevo)) {
+            perfiles.add(nuevo);
+        } else {
+            JOptionPane.showMessageDialog(null, "Ya existe este perfil!!!");
+        }
+        NomTF.setText("");
+        RazaCB.setSelectedIndex(0);
+        GenCB.setSelectedIndex(0);
+        OBSTA.setText("");
+        DateCh.setDate(new Date(System.currentTimeMillis()));
+    }//GEN-LAST:event_AgrePErBTActionPerformed
+
+    private void CBMapasEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBMapasEditActionPerformed
+        // TODO add your handling code here:
+        int pos = CBMapasEdit.getSelectedIndex();
+        AdjacencyListGraph actual = mapas.get(pos);
+        DefaultListModel model = new DefaultListModel();
+        if (actual.getEdgeCount() > 0) {
+            for (int i = 0; i < actual.getEdgeCount(); i++) {
+                model.addElement(actual.getNode(i));
+            }
+        }
+        JListConexEdit1.setModel(model);
+    }//GEN-LAST:event_CBMapasEditActionPerformed
+
+    private void ELimPalabraBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELimPalabraBTActionPerformed
+        // TODO add your handling code here:
+        if (JLisEditPal.getSelectedIndex() > -1) {
+            palabras.remove(JLisEditPal.getSelectedIndex());
+        }
+        DefaultListModel modPal = new DefaultListModel();
+        if (!palabras.isEmpty()) {
+            for (int i = 0; i < palabras.size(); i++) {
+                modPal.addElement(palabras.get(i));
+            }
+        }
+        JLisEditPal.setModel(modPal);
+        TFPalabra1.setText("");
+    }//GEN-LAST:event_ELimPalabraBTActionPerformed
+
+    private void EditPalabra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPalabra1ActionPerformed
+        // TODO add your handling code here:
+        if (JLisEditPal.getSelectedIndex() > -1) {
+            palabras.set(JLisEditPal.getSelectedIndex(), TFPalabra1.getText());
+
+        }
+        DefaultListModel modPal = new DefaultListModel();
+        if (!palabras.isEmpty()) {
+            for (int i = 0; i < palabras.size(); i++) {
+                modPal.addElement(palabras.get(i));
+            }
+        }
+        JLisEditPal.setModel(modPal);
+        TFPalabra1.setText("");
+    }//GEN-LAST:event_EditPalabra1ActionPerformed
+
+    private void EliminarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBTActionPerformed
+        // TODO add your handling code here:
+        try {
+            System.out.println(perfiles.remove((Perfil) CBEditPEr.getSelectedItem()));
+            DefaultComboBoxModel modPerf = new DefaultComboBoxModel();
+            if (!perfiles.isEmpty()) {
+
+                for (int i = 0; i < perfiles.size(); i++) {
+                    modPerf.addElement(perfiles.get(i));
+                }
+
+            }
+            CBEditPEr.setModel(modPerf);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_EliminarBTActionPerformed
+
+    private void CBEditPErActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBEditPErActionPerformed
+        // TODO add your handling code here:
+        int pos = CBEditPEr.getSelectedIndex();
+        Perfil actual = perfiles.get(pos);
+        NomTF1.setText(actual.getNombre());
+        RazaCB1.setSelectedItem(actual.getRaza());
+        GenCB1.setSelectedItem(actual.getGenero());
+        DateCh1.setDate(new Date(actual.getFechaN().getTime()));
+        OBSTA1.setText(actual.getObservaciones());
+    }//GEN-LAST:event_CBEditPErActionPerformed
+
+    private void EditPErBT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPErBT1ActionPerformed
+        // TODO add your handling code here:
+        String nombre = NomTF1.getText(), raza = RazaCB1.getSelectedItem().toString();
+        String genero = GenCB1.getSelectedItem().toString(), observaciones = OBSTA1.getText();
+        Date nacimiento = DateCh1.getDate();
+        int pos = CBEditPEr.getSelectedIndex();
+        if (pos > -1) {
+            Perfil actual = perfiles.get(pos);
+            actual.setNombre(nombre);
+            actual.setFechaN(nacimiento);
+            actual.setGenero(genero);
+            actual.setObservaciones(observaciones);
+            actual.setRaza(raza);
+        }
+        NomTF1.setText("");
+        RazaCB1.setSelectedIndex(0);
+        GenCB1.setSelectedIndex(0);
+        OBSTA1.setText("");
+        DateCh1.setDate(new Date(System.currentTimeMillis()));
+    }//GEN-LAST:event_EditPErBT1ActionPerformed
+    LinkedList<Perfil> arbol = new LinkedList<>();
+    LinkedList<AdjacencyListGraph> arboles = new LinkedList<>();
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int selet1 = LisTPErArb.getSelectedIndex();
+        int selet2 = LisTPErArb1.getSelectedIndex();
+        String nom = TFArbol.getText();
+        int posArb = -1;
+        boolean Conte = false;
+        if (!arboles.isEmpty() && !perfiles.isEmpty() && !LisTPErArb.isSelectionEmpty() && !LisTPErArb1.isSelectionEmpty() && !nom.isEmpty()) {
+            for (int i = 0; i < arboles.size(); i++) {
+                if (arboles.get(i).getId().equals(nom)) {
+                    posArb = i;
+                    Conte = true;
+                }
+                if (!arboles.get(i).getId().equals(nom)) {
+                    AdjacencyListGraph tmp = new AdjacencyListGraph(nom, false, true);
+                    arboles.add(tmp);
+                }
+            }
+            if (!Conte) {
+                posArb = arboles.size() - 1;
+            }
+            AdjacencyListGraph tmpArbol = arboles.get(posArb);
+            if (tmpArbol.getNodeCount() != 0) {
+                if (tmpArbol.getNode(perfiles.get(selet2).getNombre()) == null) {
+                    tmpArbol.addNode(perfiles.get(selet1).getNombre());
+                    tmpArbol.addNode(perfiles.get(selet2).getNombre());
+                    tmpArbol.addEdge(nom, perfiles.get(selet1).getNombre(), perfiles.get(selet2).getNombre(), true);
+                    if (arbol.contains(perfiles.get(selet1))) {
+                        arbol.add(perfiles.get(selet1));
+                    }
+                    if (arbol.contains(perfiles.get(selet2))) {
+                        arbol.add(perfiles.get(selet2));
+                    }
+                }
+            } else {
+                tmpArbol.addNode(perfiles.get(selet1).getNombre());
+                tmpArbol.addNode(perfiles.get(selet2).getNombre());
+                tmpArbol.addEdge(nom, perfiles.get(selet1).getNombre(), perfiles.get(selet2).getNombre(), true);
+                arbol.add(perfiles.get(selet1));
+                arbol.add(perfiles.get(selet1));
+            }
+        } else if (!perfiles.isEmpty() && !LisTPErArb.isSelectionEmpty() && !LisTPErArb1.isSelectionEmpty() && !nom.isEmpty()) {
+            AdjacencyListGraph tmp = new AdjacencyListGraph(nom, false, true);
+            tmp.addNode(perfiles.get(selet1).getNombre());
+            tmp.addNode(perfiles.get(selet2).getNombre());
+            tmp.addEdge(nom, perfiles.get(selet1).getNombre(), perfiles.get(selet2).getNombre(), true);
+            arboles.add(tmp);
+        }
+        if (posArb > -1) {
+            String styleSheet
+                    = "node {"
+                    + "	fill-color: yellow;"
+                    + "}"
+                    + "edge {"
+                    + "	fill-color: green;"
+                    + "}";
+            arboles.get(posArb).addAttribute("ui.stylesheet", styleSheet);
+            for (Node node : arboles.get(posArb).getEachNode()) {
+                node.addAttribute("ui.label", node.getId());
+            }
+            for (Edge node : arboles.get(posArb).getEdgeSet()) {
+                node.addAttribute("ui.label", (Object) node.getAttribute("length"));
+            }
+            Viewer view = arboles.get(posArb).display();
+            view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+        }
+        LisTPErArb.clearSelection();
+        LisTPErArb1.clearSelection();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1434,7 +1522,6 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgrePErBT;
     private javax.swing.JButton AgregarPalabra;
-    private javax.swing.JButton BTAddArbMap;
     private javax.swing.JButton BTCaminosCortos;
     private javax.swing.JButton BTConectar;
     private javax.swing.JButton BTDatos;
@@ -1445,6 +1532,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CBEditPEr;
     private javax.swing.JComboBox<String> CBMapasEdit;
     private javax.swing.JComboBox<String> CBPerfiles;
+    private javax.swing.JComboBox<String> CBRaKArb;
     private javax.swing.JComboBox<String> CBTrenPerfiles;
     private com.toedter.calendar.JDateChooser DateCh;
     private com.toedter.calendar.JDateChooser DateCh1;
@@ -1465,6 +1553,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog JTrenPensamiento;
     private javax.swing.JList<String> JlistNodos;
     private javax.swing.JList<String> JlistNodos1;
+    private javax.swing.JDialog Jranking;
+    private javax.swing.JList<String> LisTPErArb;
+    private javax.swing.JList<String> LisTPErArb1;
+    private javax.swing.JList<String> ListArbo;
+    private javax.swing.JList<String> ListArbo1;
     private javax.swing.JList<String> ListPal1;
     private javax.swing.JList<String> ListPal2;
     private javax.swing.JTextArea ListPalabras;
@@ -1478,12 +1571,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> RazaCB;
     private javax.swing.JComboBox<String> RazaCB1;
     private javax.swing.JTextArea TAPalabras;
-    private javax.swing.JTextArea TAatboles;
     private javax.swing.JTextField TFArbol;
     private javax.swing.JTextField TFNombreMapa;
     private javax.swing.JTextField TFPalabra;
     private javax.swing.JTextField TFPalabra1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1507,9 +1601,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1517,8 +1609,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1527,7 +1622,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSliderConectar;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
