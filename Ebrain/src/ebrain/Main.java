@@ -1,21 +1,16 @@
 package ebrain;
 
-import java.awt.HeadlessException;
 import java.util.Date;
 import java.util.LinkedList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.graphstream.algorithm.Dijkstra;
+import org.graphstream.algorithm.Prim;
 import org.graphstream.graph.Edge;
-import org.graphstream.graph.EdgeRejectedException;
-import org.graphstream.graph.ElementNotFoundException;
-import org.graphstream.graph.Graph;
-import org.graphstream.graph.IdAlreadyInUseException;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.AdjacencyListGraph;
 import org.graphstream.ui.view.Viewer;
-import scala.collection.immutable.RedBlack;
 
 public class Main extends javax.swing.JFrame {
 
@@ -813,6 +808,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         BTSpaTree.setText("Relaciones importantes");
+        BTSpaTree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTSpaTreeActionPerformed(evt);
+            }
+        });
 
         BTNodos.setText("Ver Nodos");
         BTNodos.addActionListener(new java.awt.event.ActionListener() {
@@ -1064,9 +1064,7 @@ public class Main extends javax.swing.JFrame {
         JGeneaMaps.setLocationRelativeTo(this);
         JGeneaMaps.setVisible(true);
     }//GEN-LAST:event_MapaGeneaBTActionPerformed
-    int posPer2 = -1;
-    int posCP2 = -1;
-    int posC2 = -1;
+
     private void BTConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTConectarActionPerformed
         // TODO add your handling code here:
         String current = TFNombreMapa.getText();
@@ -1126,28 +1124,26 @@ public class Main extends javax.swing.JFrame {
                     tmp.getEdge(id2).addAttribute("length", length);
                 }
             }
+            String styleSheet
+                    = "node {"
+                    + "	fill-color: yellow;"
+                    + "}"
+                    + "edge {"
+                    + "	fill-color: green;"
+                    + "}";
+            perfiles.get(posPer).getMapa().get(posCP).addAttribute("ui.stylesheet", styleSheet);
+            for (Node node : perfiles.get(posPer).getMapa().get(posCP)) {
+                node.addAttribute("ui.label", node.getId());
+            }
+            for (Edge node : perfiles.get(posPer).getMapa().get(posCP).getEdgeSet()) {
+                node.addAttribute("ui.label", (Object) node.getAttribute("length"));
+            }
+            Viewer view = perfiles.get(posPer).getMapa().get(posCP).display();
+            view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
         } else {
             JOptionPane.showMessageDialog(null, "No pueden ser iguales!!!");
         }
-        String styleSheet
-                = "node {"
-                + "	fill-color: yellow;"
-                + "}"
-                + "edge {"
-                + "	fill-color: green;"
-                + "}";
-        perfiles.get(posPer).getMapa().get(posCP).addAttribute("ui.stylesheet", styleSheet);
-        for (Node node : perfiles.get(posPer).getMapa().get(posCP)) {
-            node.addAttribute("ui.label", node.getId());
-        }
-        for (Edge node : perfiles.get(posPer).getMapa().get(posCP).getEdgeSet()) {
-            node.addAttribute("ui.label", (Object) node.getAttribute("length"));
-        }
-        posPer2 = posPer;
-        posCP2 = posCP;
-        posC2 = posC;
-        Viewer view = perfiles.get(posPer).getMapa().get(posCP).display();
-        view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+
         ListPal1.clearSelection();
         ListPal2.clearSelection();
         jSliderConectar.setValue(3);
@@ -1293,18 +1289,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
-        dijkstra.init(perfiles.get(posPer2).getMapa().get(posCP2));
-        dijkstra.setSource(perfiles.get(posPer2).getMapa().get(posCP2).getNode("1"));
-        dijkstra.compute();
-        for (Node node : dijkstra.getPathNodes(perfiles.get(posPer2).getMapa().get(posCP2).getNode("4"))) {
-            node.addAttribute("ui.style", "fill-color: red;");
-        }
-        for (Edge edge : dijkstra.getTreeEdges()) {
-            edge.addAttribute("ui.style", "fill-color: red;");
-        }
-        Viewer view = perfiles.get(posPer2).getMapa().get(posCP2).display();
-        view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1386,12 +1371,29 @@ public class Main extends javax.swing.JFrame {
             perfiles.get(posPer).getMapa().get(posGra).getNode(indexA).addAttribute("ui.style", "fill-color: blue;");
             perfiles.get(posPer).getMapa().get(posGra).getNode(indexB).addAttribute("ui.style", "fill-color: orange;");
             dijkstra.clear();
-            Viewer view = perfiles.get(posPer).getMapa().get(posCP2).display();
+            Viewer view = perfiles.get(posPer).getMapa().get(posGra).display();
             view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
         }
         JlistNodos.clearSelection();
         JlistNodos1.clearSelection();
     }//GEN-LAST:event_BTCaminosCortosActionPerformed
+
+    private void BTSpaTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTSpaTreeActionPerformed
+        // TODO add your handling code here:
+        int posPer = CBTrenPerfiles.getSelectedIndex();
+        int posGra = JListMapasPerfil.getSelectedIndex();
+        if (posPer > -1 && posGra > -1) {
+            String css = "edge .notintree {size:1px;fill-color:gray;} "
+                    + "edge .intree {size:3px;fill-color:black;}";
+            perfiles.get(posPer).getMapa().get(posGra).addAttribute("ui.stylesheet", css);
+            Viewer view = perfiles.get(posPer).getMapa().get(posGra).display();
+            view.setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
+            Prim prim = new Prim("ui.class", "intree", "notintree");
+            prim.init(perfiles.get(posPer).getMapa().get(posGra));
+            prim.compute();
+            
+        }
+    }//GEN-LAST:event_BTSpaTreeActionPerformed
 
     /**
      * @param args the command line arguments
